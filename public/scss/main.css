@@ -7,11 +7,18 @@ form input {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+button {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 body > header {
-  background: #111111;
+  background-color: rgba(17, 17, 17, 0.91);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
   width: 100%;
   height: 3.5rem;
-  padding: 0 2rem;
+  padding: 0 4rem;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,7 +77,7 @@ body > header > ul > li.login {
 }
 
 body > header > ul > li.login > a {
-  background-color: #64f56b;
+  background-color: #1bdf46;
   color: #111111;
   font-weight: 600;
   border-radius: 4px;
@@ -78,6 +85,10 @@ body > header > ul > li.login > a {
   width: 100%;
   background-color: none;
   text-decoration: none;
+}
+
+body > header > ul > li.login > a:hover {
+  background-color: #6bff96;
 }
 
 body > header > ul > li > a {
@@ -93,32 +104,8 @@ body > header > ul > li > a {
   color: #f0f0f0;
 }
 
-article.lootbox_container {
-  background-color: royalblue;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-article.lootbox_container > a.icon {
-  max-width: 4.5rem;
-}
-
-article.lootbox_container > a.icon img {
-  width: 100%;
-}
-
-article.lootbox_container > div.priceBuy {
+section.lootbox_welcome {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,9 +119,166 @@ article.lootbox_container > div.priceBuy {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-86.gif);
+  background-repeat: no-repeat;
+  background-position-x: center, 90%, 3%;
+  background-position-y: bottom, 10%, 60%;
+  background-size: 100%, 12rem, 10rem;
+  gap: 7rem;
 }
 
-article.lootbox_container > div.rating {
+section.lootbox_welcome h1 {
+  font-size: 5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+section.lootbox_welcome button {
+  font-weight: 500;
+  font-size: 0.75rem;
+  background-color: #1bdf46;
+  border: none;
+  border-radius: 999999px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 3.2rem;
+  width: 13rem;
+}
+
+section.lootbox_welcome button:hover {
+  background-color: #6bff96;
+}
+
+section.lootbox_welcome button:hover {
+  cursor: pointer;
+}
+
+section.lootbox_welcome button > img {
+  width: 0.8rem;
+  margin-top: 0.1rem;
+  margin-bottom: -0.4rem;
+}
+
+main.lootbox_container {
+  background-image: url(../img/wave2.svg);
+  background-position-y: -2px;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15rem 4rem 0 4rem;
+  gap: 1rem;
+}
+
+main.lootbox_container article.lootbox {
+  background-color: #f0f0f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 30rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  height: 7rem;
+  border: #111111 solid 3px;
+}
+
+main.lootbox_container article.lootbox > img {
+  max-width: 5rem;
+  width: 100%;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.4rem;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > p {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 7.5rem;
+  height: 2.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.available {
+  background-color: #1bdf46;
+  color: #111111;
+  border: #111111 solid 2px;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.available:hover {
+  background-color: #6bff96;
+}
+
+main.lootbox_container article.lootbox > div.rating {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -150,7 +294,7 @@ article.lootbox_container > div.rating {
           flex-direction: row;
 }
 
-article.lootbox_container > div.rating > img {
+main.lootbox_container article.lootbox > div.rating > img {
   max-width: 2rem;
   width: 100%;
 }
