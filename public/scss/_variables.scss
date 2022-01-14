@@ -1,0 +1,62 @@
+$black: rgb(17, 17, 17);
+$white:rgb(240, 240, 240);
+$orange: rgb(255, 136, 0);
+$green: rgb(100, 245, 107);
+
+$common_blue:rgb(26, 47, 231);
+$rare_red: rgb(245, 20, 20);
+$epic_purple:rgb(173, 15, 187);
+
+$radius: 4px;
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin border($color) {
+    border: $color solid 4px;
+}
+// ($color, $size)
+@mixin star($color, $size_noUnit){
+    $size:(1px*$size_noUnit);
+    margin: 50*$size 0;
+    position: relative;
+    display: block;
+    color: $color;
+    width: 0*$size;
+    height: 0*$size;
+    border-right: 100*$size solid transparent;
+    border-bottom: 70*$size solid $color;
+    border-left: 100*$size solid transparent;
+    transform: rotate(35deg);
+    
+    &:before {
+        border-bottom: 80*$size solid $color;
+        border-left: 30*$size solid transparent;
+        border-right: 30*$size solid transparent;
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -45*$size;
+        left: -65*$size;
+        display: block;
+        content: '';
+        transform: rotate(-35deg);
+    }
+    &:after {
+        position: absolute;
+        display: block;
+        color: $color;
+        top: 3*$size;
+        left: -105*$size;
+        width: 0*$size;
+        height: 0*$size;
+        border-right: 100*$size solid transparent;
+        border-bottom: 70*$size solid $color;
+        border-left: 100*$size solid transparent;
+        transform: rotate(-70deg);
+        content: '';
+    }
+}
