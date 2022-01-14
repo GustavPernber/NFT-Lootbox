@@ -1,2 +1,2 @@
 # NFT-Lootbox
-WSP slutprojekt
+**WSP slutprojekt**
