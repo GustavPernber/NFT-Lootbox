@@ -15,6 +15,7 @@ body > header {
   background-color: rgba(17, 17, 17, 0.91);
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
+  z-index: 10;
   width: 100%;
   height: 3.5rem;
   padding: 0 4rem;
@@ -38,8 +39,12 @@ body > header > a {
   text-decoration: none;
 }
 
+body > header > a:hover h2 {
+  border-bottom: solid 2px #e2e2e2;
+}
+
 body > header > a h2 {
-  color: #f0f0f0;
+  color: #e2e2e2;
 }
 
 body > header > ul {
@@ -69,7 +74,7 @@ body > header > ul > li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 6rem;
+  width: 8.4rem;
 }
 
 body > header > ul > li.login {
@@ -82,13 +87,27 @@ body > header > ul > li.login > a {
   font-weight: 600;
   border-radius: 4px;
   height: 2rem;
-  width: 100%;
+  width: 80%;
   background-color: none;
   text-decoration: none;
 }
 
 body > header > ul > li.login > a:hover {
   background-color: #6bff96;
+}
+
+body > header > ul > li.signup > a {
+  border: solid 1px #e2e2e2;
+  border-radius: 4px;
+  height: 2rem;
+  width: 80%;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+body > header > ul > li.signup > a:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+  font-weight: 500;
 }
 
 body > header > ul > li > a {
@@ -101,10 +120,61 @@ body > header > ul > li > a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #f0f0f0;
+  color: #e2e2e2;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+body > header > ul > li > a:hover {
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  font-weight: 600;
+}
+
+body > header > ul > li > a.active {
+  background-color: rgba(100, 100, 100, 0.774);
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+}
+
+body > footer {
+  height: 15rem;
+  background-color: #111111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body > footer > svg {
+  overflow-x: hidden;
+  position: relative;
+  margin-top: -20%;
+}
+
+body > footer > div.info {
+  -webkit-transform: translateY(-7rem);
+          transform: translateY(-7rem);
+}
+
+body > footer h1, body > footer h5 {
+  color: #eeeeee;
 }
 
 section.lootbox_welcome {
+  background-color: #eeeeee;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -119,12 +189,12 @@ section.lootbox_welcome {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-86.gif);
+  justify-content: center;
+  background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-70.gif);
   background-repeat: no-repeat;
   background-position-x: center, 90%, 3%;
   background-position-y: bottom, 10%, 60%;
-  background-size: 100%, 12rem, 10rem;
-  gap: 7rem;
+  background-size: 100%, 12rem, 12rem;
 }
 
 section.lootbox_welcome h1 {
@@ -133,12 +203,19 @@ section.lootbox_welcome h1 {
   font-weight: 500;
 }
 
-section.lootbox_welcome button {
+section.lootbox_welcome h4 {
+  color: #2e2e2e;
+  margin-top: 1rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  font-size: 0.75rem;
-  background-color: #1bdf46;
+}
+
+section.lootbox_welcome button {
+  z-index: 2;
   border: none;
-  border-radius: 999999px;
+  background: none;
+  -webkit-transform: translateY(8rem);
+          transform: translateY(8rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,25 +229,36 @@ section.lootbox_welcome button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 3.2rem;
-  width: 13rem;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
 }
 
 section.lootbox_welcome button:hover {
-  background-color: #6bff96;
-}
-
-section.lootbox_welcome button:hover {
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
   cursor: pointer;
 }
 
+section.lootbox_welcome button h3 {
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  background-color: #1bdf46;
+  padding: 0.8rem 1.2rem;
+  border-radius: 99999px;
+  font-weight: 600;
+}
+
+section.lootbox_welcome button h3:hover {
+  background-color: #6bff96;
+}
+
 section.lootbox_welcome button > img {
-  width: 0.8rem;
-  margin-top: 0.1rem;
-  margin-bottom: -0.4rem;
+  width: 1.3rem;
+  margin-top: 0.5rem;
 }
 
 main.lootbox_container {
+  background-color: #eeeeee;
   background-image: url(../img/wave2.svg);
   background-position-y: -2px;
   background-position-x: center;
@@ -200,7 +288,20 @@ main.lootbox_container {
 }
 
 main.lootbox_container article.lootbox {
-  background-color: #f0f0f0;
+  background-color: #e2e2e2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1;
+      grid-template-rows: 1;
+  max-width: 30rem;
+  width: 100%;
+  height: 7rem;
+  border: #111111 solid 3px;
+}
+
+main.lootbox_container article.lootbox > div.nameIcon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -210,22 +311,19 @@ main.lootbox_container article.lootbox {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
+  gap: 0.4rem;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  max-width: 30rem;
-  width: 100%;
-  padding: 0 1.5rem;
-  height: 7rem;
-  border: #111111 solid 3px;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-main.lootbox_container article.lootbox > img {
-  max-width: 5rem;
+main.lootbox_container article.lootbox > div.nameIcon > h3 {
+  font-weight: 500;
+}
+
+main.lootbox_container article.lootbox > div.nameIcon > img {
+  max-width: 3rem;
   width: 100%;
 }
 
@@ -297,6 +395,107 @@ main.lootbox_container article.lootbox > div.rating {
 main.lootbox_container article.lootbox > div.rating > img {
   max-width: 2rem;
   width: 100%;
+}
+
+main.lootbox_container article.lootbox > div.rating > img:hover {
+  cursor: pointer;
+}
+
+main#create_lootbox {
+  background-color: #eeeeee;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div {
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 10rem;
+  width: 8rem;
+  z-index: 4;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT figure {
+  background-color: rgba(100, 100, 100, 0.774);
+  height: 70%;
+  width: 100%;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT figure img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile + label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #2e2e2e;
+  border: solid 2px #111111;
+  padding: 0.2rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile:focus + label,
+main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile + label:hover {
+  background-color: #d4d4d4;
+  cursor: pointer;
 }
 
 *, html {

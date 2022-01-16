@@ -42,7 +42,7 @@ for(let i=0; i<articles.length; i++){
 
 btn.addEventListener('click', ()=>{
     window.scrollTo({
-        top: window.innerHeight,
+        top: (window.innerHeight-80),
         behavior:'smooth'
     })
 })

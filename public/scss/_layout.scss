@@ -8,6 +8,7 @@ body>header{
     
     backdrop-filter: blur(15px);
 
+    z-index: 10;
     width: 100%; 
     height: 3.5rem;
     padding: 0 4rem;
@@ -20,9 +21,16 @@ body>header{
 
     >a{
         text-decoration: none;
-        h2{
-            color: $white;
+
+        &:hover{
+            h2{
+                border-bottom: solid 2px $superLight_grey;
+            }
         }
+        h2{
+            color: $superLight_grey;
+        }
+
     }
 
 
@@ -35,7 +43,7 @@ body>header{
 
         >li{
             @include center;
-            width: 6rem;
+            width: 8.4rem;
             
             &.login{
                 
@@ -46,64 +54,131 @@ body>header{
                     font-weight: 600;
                     border-radius: $radius;
                     height: 2rem;
-                    width: 100%;
+                    width: 80%;
                     background-color: none;
                     text-decoration: none
                 }
             }
+
+            &.signup{
+
+                >a{
+                    border: solid 1px $superLight_grey;
+                    border-radius: $radius;
+                    height: 2rem;
+                    width: 80%;
+                    text-decoration: none;
+                    font-weight: 400;
+
+                    &:hover{
+                        background-color: rgba(255, 255, 255, 0.11);
+                        font-weight: 500;
+                    }
+                }
+            }
             >a{
                 @include center;
-                color: $white;   
+                color: $superLight_grey;   
+                transition: 0.15s;
+                &:hover{
+                    transition: 0.15s;
+                    font-weight: 600;
+                }
+
+                &.active{
+                    background-color: $dark_grey;
+                    padding:0.4rem 0.5rem;
+                    border-radius: $radius;
+                }
+
             }
         }
     }
 
 }
 
+//FOOTER
+body>footer{
+    height: 15rem;
+    background-color: $black;
+    @include center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    >svg{
+        overflow-x: hidden;
+        position: relative;
+        margin-top: -20%;
+    }
+
+    >div.info{
+        transform:translateY(-7rem);   
+    }
+    h1, h5{
+        color: $almost_white;
+        
+    }
+
+}
+
+//LOOTBOXES
 section.lootbox_welcome{
+    background-color: $almost_white;
     height: 100vh;
     @include center;
     flex-direction: column;
-    background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-86.gif) ;
+    justify-content: center;
+
+    background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-70.gif) ;
     background-repeat: no-repeat;
     background-position-x: center, 90%, 3%;
     background-position-y: bottom, 10%, 60%;
-    background-size: 100%, 12rem, 10rem;
-    
-    gap: 7rem;
+    background-size: 100%, 12rem, 12rem;
     
     h1{
         font-size: 5rem;
         text-align: center;
         font-weight:500;
     }
-    button{
-        
+
+    h4{
+        color: $dark_grey_text;
+        margin-top: 1rem;
+        font-size: 1.3rem;
         font-weight: 500;
-        font-size: 0.75rem;
-        @include colorize($green);
+    }
+    button{
+        z-index: 2;
         border: none;
-        border-radius: 999999px;
+        background: none;
+        transform: translateY(8rem);
+
         @include center;
         flex-direction: column;
-        height: 3.2rem;
-        width: 13rem;
-        
 
+        transition: 0.15s;
         &:hover{
+            transition: 0.15s;
             cursor: pointer;
         }
-
+        
+        h3{
+            transition: 0.15s;
+            @include colorize($green);
+            padding: 0.8rem 1.2rem;
+            border-radius: 99999px;
+            font-weight: 600;
+        }
+    
         >img{
-            width: 0.8rem;
-            margin-top: 0.1rem;
-            margin-bottom: -0.4rem;
+            width: 1.3rem;
+            margin-top: 0.5rem;
         }
 
     }
 }
-
 main.lootbox_container{
+    background-color: $almost_white;
     background-image: url(../img/wave2.svg);
     background-position-y: -2px;
     background-position-x: center;
@@ -117,22 +192,38 @@ main.lootbox_container{
     gap: 1rem;
 
     article.lootbox {
-        background-color: $white;
+        background-color: $superLight_grey;
 
-        @include center;
-        justify-content: space-between;
-        flex-direction: row;
+        // @include center;
+        // justify-content: space-between;
+        // flex-direction: row;
+        // padding: 0 1.5rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1;
         
         max-width: 30rem;
         width: 100%;
-        padding: 0 1.5rem;
         height: 7rem;
         @include border($black);
-        >img {
-            max-width: 5rem;
-            width: 100%;
-           
+
+        >div.nameIcon{
+            @include center;
+            gap: 0.4rem;
+            flex-direction: column;
+            >h3{
+
+                font-weight: 500 ;
+            }
+            >img {
+                max-width: 3rem;
+                width: 100%;
+               
+            }
         }
+
+
         >div.priceBuy{
             @include center;
             flex-direction: column;
@@ -160,11 +251,15 @@ main.lootbox_container{
             }
         }
         >div.rating{
+
             @include center;
             flex-direction: row;
             >img{
                 max-width: 2rem;
                 width: 100%;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     
@@ -173,5 +268,92 @@ main.lootbox_container{
     }
 }
 
+main#create_lootbox{
+    background-color: $almost_white;
+    height: 100vh;
+    @include center;
+    flex-direction: column;
 
+    form{
+
+        ol{
+
+            li{
+
+                &:nth-child(1){
+                    
+                    >div{
+                        height: 10rem;
+                        @include center;
+                        justify-content: space-between;
+
+                        article.formImgNFT{
+                            @include center;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            align-items: flex-start;
+                
+                            height: 10rem;
+                            width: 8rem;
+                            z-index: 4;
+                            figure{
+                                
+                                background-color: $dark_grey;
+                                height: 70%;
+                                width: 100%;
+
+                                img{
+                                    height: 100%;
+                                    width: 100%;
+                                    object-fit: cover;
+                                    
+                                }
+
+                            }
+
+                            .inputfile{
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: -1;
+                            }
+
+                            .inputfile + label {
+                                margin-top: 0.5rem;
+                                font-size: 0.8rem;
+                                color: $dark_grey_text;
+                                border: solid 2px $black;
+                                padding: 0.2rem;
+                                border-radius: $radius;
+                                display: inline-block;
+                            }
+                            
+                            .inputfile:focus + label,
+                            .inputfile + label:hover {
+                                background-color: rgb(212, 212, 212);
+                                cursor: pointer;
+                            }
+
+                        }
+                    }
+
+                }
+
+                &:nth-child(2){
+                    
+                }
+
+
+
+
+            }
+
+
+        }
+
+
+    }
+}
 
