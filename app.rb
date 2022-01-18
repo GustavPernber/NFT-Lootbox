@@ -10,9 +10,20 @@ enable :sessions
 get('/') do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
-    result=db.execute("SELECT * FROM Lootbox")
-    
-    slim(:'lootbox/index', locals:{lootboxes:result})
+    lootboxes=db.execute("SELECT * FROM Lootbox")
+
+    # session[:auth]
+    # session[:id]
+    # session[:balance]
+    # session[:colour]
+    # session[:firstLetter]
+    # if session[:auth]
+    #     user=db.execute("SELECT * FROM Users WHERE id=?", session[:id]).first
+    #     p user
+    #     slim(:'lootbox/index', locals:{lootboxes:lootboxes, user:user})
+    # else
+    # end 
+    slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
 get('/lol')do
@@ -63,7 +74,12 @@ post('/login')do
             session[:loginError]=false
             session[:id]=id
             session[:auth]=true
-            session[:firstLetter]=username.split('')[0]
+
+            session[:balance]=result["balance"]
+            session[:colour]=result["colour"]
+            session[:username]=result["username"]
+
+
             redirect('/')
             
         else
@@ -84,17 +100,23 @@ post('/register')do
     username=params[:username]
     password=params[:password]
     password_confirm=params[:password_confirm]
+    colour = "%06x" % (rand * 0xffffff)
+    balance=100
        
     if password==password_confirm || username=="" || password==""
         begin
             password_digest=BCrypt::Password.create(password)
             db=SQLite3::Database.new('db/nft-lootbox.db')
-            db.execute('INSERT INTO users (username, pwdigest) VALUES(?, ?)', username, password_digest )
+            db.execute('INSERT INTO users (username, pwdigest, colour, balance) VALUES(?, ?, ?, ?)', username, password_digest, colour, balance)
             id=db.execute("SELECT id FROM users WHERE username=?", username).first
             session[:error]=false
             session[:auth]=true
             session[:id]=id
-            session[:firstLetter]=username.split('')[0]
+
+            session[:balance]=balance
+            session[:colour]=colour
+            session[:username]=username
+
             redirect('/')
             
         rescue => exception

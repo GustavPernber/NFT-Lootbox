@@ -72,7 +72,6 @@ body>header{
                 >a{
 
                     
-                    background-color: red;
                     height: 100%;
                     width: 100%;
                     border-radius: 999999px;
@@ -81,6 +80,7 @@ body>header{
 
                     
                     >p{
+                        color: $black;
                         @include center;
                         font-weight: 500;
                         font-size: 1.2rem;
@@ -104,7 +104,7 @@ body>header{
                 background-color: $dark_grey;
                 border-radius: $radius;
                 height: 2rem;
-                width: 8.5rem;
+                padding: 0 0.6rem;
                 color: $almost_white;
                 // margin: 0 2.5rem;
             }
@@ -308,6 +308,21 @@ main.lootbox_container{
                     color: $black;
                     border: $black solid 2px; 
                 }
+
+                &.notAuth{
+                    @include colorize(rgb(184, 184, 184));
+                    color: rgb(66, 66, 66);
+                    border: $black solid 2px; 
+                    font-size: 0.8rem
+                }
+
+                &.tooExpensive{
+                    @include colorize(rgb(184, 184, 184));
+                    color: rgb(66, 66, 66);
+                    border: $black solid 2px; 
+                    font-size: 0.8rem
+                }
+
             }
         }
         >div.rating{

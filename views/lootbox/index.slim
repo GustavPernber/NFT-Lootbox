@@ -19,7 +19,15 @@ main.lootbox_container
                 p   
                     |Price: 
                     strong #{lootbox["price"]}$
-                a.available href="" Get lootbox
+                
+                -if session[:auth]
+                    -if lootbox["price"]>session[:balance]
+                        a.tooExpensive Too expensive
+                    -else
+                        a.available href="lootbox/show/#{lootbox["id"]}" Get lootbox
+                -else   
+                    a.notAuth href="/login" Not logged in
+
             div.rating
                 img src="img/star-empty.png" alt=""
                 img src="img/star-empty.png" alt=""

@@ -15,17 +15,13 @@ html lang="en"
                     li 
                         a href="/lootbox/new" Create lootbox 
                     li.balance 
-                        p Balance: 12$
+                        p Balance: #{session[:balance]}$
                     li.pfp 
-                        a href="" 
-                                p G
+                        a href="" style="background-color: ##{session[:colour]};"
+                                p #{session[:username].split('')[0]}
                     li.logout 
                         a href="/logout" Log out
                 -else 
-                    li 
-                        a href="" Home
-                    li 
-                        a href="/lootbox/new" Create lootbox 
                     li.login
                         a href="/login" Login
                     li.signup 

@@ -5,6 +5,7 @@ main#login
         input type="password" name="password" placeholder="Password"/
         input type="submit" value="Log in"/
 
+    a href="/register" Sign up here! 
     -if session[:loginError]
         article.loginError
             h1 INVALID PASSWORD OR USERNAME
