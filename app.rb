@@ -32,17 +32,16 @@ post ('/lootbox/create') do
     if images.length==1
        read1=images[0].read
        blob1=SQLite3::Blob.new read1
-       queryString= "INSERT INTO Lootbox (img1) VALUES(?)"
-
-       db.execute(queryString, blob1)
+       db.execute("INSERT INTO Lootbox (img1, rarity, title, price) VALUES(?, ?, ?, ?)", blob1, rarity, title, price)
     elsif images.length==2
         read1=images[0].read
         blob1=SQLite3::Blob.new read1
         read2=images[1].read
         blob2=SQLite3::Blob.new read2
-        queryString= "INSERT INTO Lootbox (img1, img2) VALUES(?, ?)"
+        
 
-        db.execute(queryString, blob1, blob2, blob3)
+        
+        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price) VALUES(?, ?, ?, ?, ?)", blob1, blob2, rarity, title, price)
     elsif images.length==3
         read1=images[0].read
         blob1=SQLite3::Blob.new read1
@@ -50,8 +49,8 @@ post ('/lootbox/create') do
         blob2=SQLite3::Blob.new read2
         read3=images[2].read
         blob2=SQLite3::Blob.new read3
-        queryString= "INSERT INTO Lootbox (img1, img2, img3) VALUES(?, ?, ?)"
-        db.execute(queryString, blob1, blob2, blob3)
+        
+        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price) VALUES(?,?,?, ?, ?, ?)", blob1, blob2, blob3, rarity, title, price)
       
     end
 
