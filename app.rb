@@ -36,7 +36,9 @@ get('/login')do
 end
 
 get('/logout')do
-    session
+    session.destroy
+    session[:auth]=false
+    redirect('/')
 end
 
 get('/lootbox/new') do

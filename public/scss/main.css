@@ -61,7 +61,7 @@ body > header > ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   list-style: none;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 body > header > ul > li {
@@ -83,6 +83,11 @@ body > header > ul > li.logout > a {
   color: #eeeeee;
   border-radius: 4px;
   text-decoration: none;
+}
+
+body > header > ul > li.logout > a:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+  font-weight: 500;
 }
 
 body > header > ul > li.pfp {
@@ -149,17 +154,13 @@ body > header > ul > li.balance {
   color: #eeeeee;
 }
 
-body > header > ul > li.login {
-  margin-left: 1.5rem;
-}
-
 body > header > ul > li.login > a {
   background-color: #00d680;
   color: #111111;
   font-weight: 600;
   border-radius: 4px;
   height: 2rem;
-  width: 80%;
+  width: 6rem;
   background-color: none;
   text-decoration: none;
 }
@@ -172,9 +173,9 @@ body > header > ul > li.signup > a {
   border: solid 1px #e2e2e2;
   border-radius: 4px;
   height: 2rem;
-  width: 80%;
   text-decoration: none;
   font-weight: 400;
+  width: 6rem;
 }
 
 body > header > ul > li.signup > a:hover {

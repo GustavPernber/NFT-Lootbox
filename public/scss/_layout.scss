@@ -39,7 +39,7 @@ body>header{
         @include center;
         justify-content: space-between;
         list-style: none;
-        gap: 2rem;
+        gap: 3rem;
 
         >li{
             @include center;
@@ -55,6 +55,11 @@ body>header{
                     color: $almost_white;
                     border-radius: $radius;
                     text-decoration: none;
+
+                    &:hover{
+                        background-color: rgba(255, 255, 255, 0.11);
+                        font-weight: 500;
+                    }
 
                 }
                 
@@ -106,29 +111,30 @@ body>header{
 
             &.login{
                 
-                margin-left: 1.5rem;
+                
                 >a{
                     @include colorize($green);
                     color: $black;
                     font-weight: 600;
                     border-radius: $radius;
                     height: 2rem;
-                    width: 80%;
+                    
+                    width: 6rem;
                     background-color: none;
                     text-decoration: none
                 }
             }
-
+            
             &.signup{
-
+                
                 >a{
                     border: solid 1px $superLight_grey;
                     border-radius: $radius;
                     height: 2rem;
-                    width: 80%;
                     text-decoration: none;
                     font-weight: 400;
-
+                    
+                    width: 6rem;
                     &:hover{
                         background-color: rgba(255, 255, 255, 0.11);
                         font-weight: 500;
