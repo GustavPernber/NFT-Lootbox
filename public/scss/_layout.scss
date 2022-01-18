@@ -39,12 +39,71 @@ body>header{
         @include center;
         justify-content: space-between;
         list-style: none;
-        gap: 1.5rem;
+        gap: 2rem;
 
         >li{
             @include center;
-            width: 8.4rem;
             
+            
+            &.logout{
+                
+                
+                >a{
+                    border: 2px solid $almost_white;
+                    height: 2rem;
+                    width: 5.5rem;
+                    color: $almost_white;
+                    border-radius: $radius;
+                    text-decoration: none;
+
+                }
+                
+            }
+
+            &.pfp{
+                width: 2.2rem;
+                height: 2.2rem;
+                @include center;
+                >a{
+
+                    
+                    background-color: red;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 999999px;
+                    @include center;
+                    text-decoration: none;
+
+                    
+                    >p{
+                        @include center;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        width: 100%;
+                        height: 100%;
+                        transition: 0.3s;
+                        &:hover{
+                            transition: 0.3s;
+                            font-weight: 700;
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                }
+                
+
+
+            }
+
+            &.balance{
+                background-color: $dark_grey;
+                border-radius: $radius;
+                height: 2rem;
+                width: 8.5rem;
+                color: $almost_white;
+                // margin: 0 2.5rem;
+            }
+
             &.login{
                 
                 margin-left: 1.5rem;
@@ -183,21 +242,16 @@ main.lootbox_container{
     background-position-y: -2px;
     background-position-x: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: auto;
     @include center;
     justify-content: left;
     align-items: flex-start;
     flex-direction: column;
-    padding: 15rem 4rem 0 4rem;
+    padding: 15rem 4rem 20rem 4rem;
     gap: 1rem;
 
     article.lootbox {
         background-color: $superLight_grey;
-
-        // @include center;
-        // justify-content: space-between;
-        // flex-direction: row;
-        // padding: 0 1.5rem;
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -464,3 +518,87 @@ main#create_lootbox{
     }
 }
 
+main#register{
+    @include center;
+    flex-direction: column;
+    background: $almost_white;
+    height: 100vh;
+    padding: 10rem 0rem 15rem 0rem;
+    gap: 3rem;
+
+    form{
+        gap: 2rem;
+        @include center;
+        flex-direction: column;
+
+        >input[type="text"], >input[type="password"]{
+            @include inputText;
+            padding-left: 0.3rem;
+            width: 15rem;
+            height: 2.5rem;
+            font-size: 1rem;
+        }
+
+        >input[type="submit"]{
+            @include inputSubmit;
+           
+            align-self: flex-end;
+            
+        }
+    }
+
+    article.registerError{
+        width: 100vw;
+        height: 3rem;
+        @include center;
+        background: $red;
+        position: fixed;
+        font-size: 0.8rem;
+        
+        z-index: 100;
+        bottom: 0;
+    }
+
+}
+
+main#login{
+    @include center;
+    flex-direction: column;
+    background: $almost_white;
+    height: 100vh;
+    padding: 10rem 0rem 15rem 0rem;
+    gap: 3rem;
+
+    form{
+        gap: 2rem;
+        @include center;
+        flex-direction: column;
+
+        >input[type="text"], >input[type="password"]{
+            @include inputText;
+            padding-left: 0.3rem;
+            width: 15rem;
+            height: 2.5rem;
+            font-size: 1rem;
+        }
+
+        >input[type="submit"]{
+            @include inputSubmit;
+           
+            align-self: flex-end;
+            
+        }
+    }
+
+    article.loginError{
+        width: 100vw;
+        height: 3rem;
+        @include center;
+        background: $red;
+        position: fixed;
+        font-size: 0.8rem;
+        
+        z-index: 100;
+        bottom: 0;
+    }
+}

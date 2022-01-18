@@ -1,0 +1,15 @@
+main#register 
+    h1 SIGN UP
+    form action="/register" method="post"
+        input type="text" name="username" placeholder="Username" maxlength="15"/
+        input type="password" name="password" placeholder="Password"/
+        input type="password" name="password_confirm" placeholder="Confirm password"/
+        input type="submit" value="Register"/
+    a href="/login" Already registered?
+
+    -if session[:registerError]
+        article.registerError
+            h1 INVALID PASSWORD OR USERNAME
+
+
+    / p #{session[:error]}

@@ -11,14 +11,25 @@ html lang="en"
             a href="/"
                 h2 NFT LOOTBOX 
             ul 
-                li 
-                    a href="" Home
-                li 
-                    a href="/lootbox/new" Create lootbox 
-                li.login
-                    a href="" Login
-                li.signup 
-                    a href="" Sign up 
+                -if session[:auth]
+                    li 
+                        a href="/lootbox/new" Create lootbox 
+                    li.balance 
+                        p Balance: 12$
+                    li.pfp 
+                        a href="" 
+                                p G
+                    li.logout 
+                        a href="/logout" Log out
+                -else 
+                    li 
+                        a href="" Home
+                    li 
+                        a href="/lootbox/new" Create lootbox 
+                    li.login
+                        a href="/login" Login
+                    li.signup 
+                        a href="/register" Sign up 
         ==yield 
 
         footer 
@@ -26,5 +37,5 @@ html lang="en"
 
             div.info
                 h1 NFT LOOTBOX ©
-                h5 Courtesy Of Gurra
-        / script src="../js/main.js" 
+                h5 Courtesy of Gurra
+        

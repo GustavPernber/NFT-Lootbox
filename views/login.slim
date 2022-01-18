@@ -1,0 +1,10 @@
+main#login 
+    h1 LOGIN
+    form action="/login" method="post"
+        input type="text" name="username" placeholder="Username" maxlength="15"/
+        input type="password" name="password" placeholder="Password"/
+        input type="submit" value="Log in"/
+
+    -if session[:loginError]
+        article.loginError
+            h1 INVALID PASSWORD OR USERNAME

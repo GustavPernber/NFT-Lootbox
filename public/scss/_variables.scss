@@ -3,7 +3,9 @@ $almost_white:rgb(238, 238, 238);
 $superLight_grey:rgb(226, 226, 226);
 $orange: rgb(255, 136, 0);
 $green: #00d680;
-// $green: rgb(75, 231, 109);
+$red:rgb(253, 24, 24);
+
+
 $dark_grey: rgba(100, 100, 100, 0.774);
 $dark_grey_text: rgb(46, 46, 46);
 
@@ -41,6 +43,19 @@ $radius: 4px;
         outline: none;
         border: 3px solid $black;
     }
+}
+
+@mixin inputSubmit{
+    @include colorize($green);
+    border: 2px solid $black;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: $radius;
+
+    &:hover{
+        cursor: pointer;
+    }
+
 }
 
 // ($color, $size)

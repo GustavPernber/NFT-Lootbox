@@ -61,7 +61,7 @@ body > header > ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   list-style: none;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 body > header > ul > li {
@@ -74,7 +74,79 @@ body > header > ul > li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 8.4rem;
+}
+
+body > header > ul > li.logout > a {
+  border: 2px solid #eeeeee;
+  height: 2rem;
+  width: 5.5rem;
+  color: #eeeeee;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+body > header > ul > li.pfp {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body > header > ul > li.pfp > a {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  border-radius: 999999px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+body > header > ul > li.pfp > a > p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body > header > ul > li.pfp > a > p:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+body > header > ul > li.balance {
+  background-color: rgba(100, 100, 100, 0.774);
+  border-radius: 4px;
+  height: 2rem;
+  width: 8.5rem;
+  color: #eeeeee;
 }
 
 body > header > ul > li.login {
@@ -263,7 +335,7 @@ main.lootbox_container {
   background-position-y: -2px;
   background-position-x: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -283,7 +355,7 @@ main.lootbox_container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 15rem 4rem 0 4rem;
+  padding: 15rem 4rem 20rem 4rem;
   gap: 1rem;
 }
 
@@ -671,6 +743,186 @@ main#create_lootbox form > input[type="submit"]:hover {
 
 main#create_lootbox form > input[type="submit"]:hover {
   cursor: pointer;
+}
+
+main#register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #eeeeee;
+  height: 100vh;
+  padding: 10rem 0rem 15rem 0rem;
+  gap: 3rem;
+}
+
+main#register form {
+  gap: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#register form > input[type="text"], main#register form > input[type="password"] {
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  padding-left: 0.3rem;
+  width: 15rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+main#register form > input[type="text"]:focus, main#register form > input[type="password"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#register form > input[type="submit"] {
+  background-color: #00d680;
+  border: 2px solid #111111;
+  padding: 0.5rem;
+  font-weight: 500;
+  border-radius: 4px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+main#register form > input[type="submit"]:hover {
+  background-color: #50ffd0;
+}
+
+main#register form > input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+main#register article.registerError {
+  width: 100vw;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fd1818;
+  position: fixed;
+  font-size: 0.8rem;
+  z-index: 100;
+  bottom: 0;
+}
+
+main#login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #eeeeee;
+  height: 100vh;
+  padding: 10rem 0rem 15rem 0rem;
+  gap: 3rem;
+}
+
+main#login form {
+  gap: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#login form > input[type="text"], main#login form > input[type="password"] {
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  padding-left: 0.3rem;
+  width: 15rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+main#login form > input[type="text"]:focus, main#login form > input[type="password"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#login form > input[type="submit"] {
+  background-color: #00d680;
+  border: 2px solid #111111;
+  padding: 0.5rem;
+  font-weight: 500;
+  border-radius: 4px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+main#login form > input[type="submit"]:hover {
+  background-color: #50ffd0;
+}
+
+main#login form > input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+main#login article.loginError {
+  width: 100vw;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fd1818;
+  position: fixed;
+  font-size: 0.8rem;
+  z-index: 100;
+  bottom: 0;
 }
 
 *, html {

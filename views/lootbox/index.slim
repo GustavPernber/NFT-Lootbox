@@ -9,20 +9,36 @@ section.lootbox_welcome
 main.lootbox_container
 
     h1 Lootbox catalog
-    //Max name lenght 12 karaktärer
-    article.lootbox 
-        div.nameIcon 
-            h3 Gaming box
-            img src="img/lootbox_icon.png" alt=""/ 
-        div.priceBuy
-            p   
-                |Price: 
-                strong 12$
-            a.available href="" Get lootbox
-        div.rating
-            img src="img/star-empty.png" alt=""
-            img src="img/star-empty.png" alt=""
-            img src="img/star-empty.png" alt=""
+    
+    - lootboxes.each do |lootbox|
+        article.lootbox 
+            div.nameIcon 
+                h3 #{lootbox["title"]}
+                img src="img/lootbox_icon.png" alt=""/ 
+            div.priceBuy
+                p   
+                    |Price: 
+                    strong #{lootbox["price"]}$
+                a.available href="" Get lootbox
+            div.rating
+                img src="img/star-empty.png" alt=""
+                img src="img/star-empty.png" alt=""
+                img src="img/star-empty.png" alt=""
+    end 
+    / article.lootbox 
+    /     div.nameIcon 
+    /         h3 Gaming box
+    /         img src="img/lootbox_icon.png" alt=""/ 
+    /     div.priceBuy
+    /         p   
+    /             |Price: 
+    /             strong 12$
+    /         a.available href="" Get lootbox
+    /     div.rating
+    /         img src="img/star-empty.png" alt=""
+    /         img src="img/star-empty.png" alt=""
+    /         img src="img/star-empty.png" alt=""
+            
 script src="../js/lootbox_index.js" 
 / 
     article.lootbox 
