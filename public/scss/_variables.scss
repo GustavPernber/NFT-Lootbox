@@ -2,13 +2,14 @@ $black: rgb(17, 17, 17);
 $almost_white:rgb(238, 238, 238);
 $superLight_grey:rgb(226, 226, 226);
 $orange: rgb(255, 136, 0);
-$green: rgb(27, 223, 70);
+$green: #00d680;
+// $green: rgb(75, 231, 109);
 $dark_grey: rgba(100, 100, 100, 0.774);
 $dark_grey_text: rgb(46, 46, 46);
 
-$common_blue:rgb(26, 47, 231);
-$rare_red: rgb(245, 20, 20);
-$epic_purple:rgb(173, 15, 187);
+$common_blue:rgb(91, 142, 238);
+$rare_purple: rgb(200, 20, 245);
+$epic_yellow:rgb(230, 207, 2);
 
 $radius: 4px;
 
@@ -29,6 +30,19 @@ $radius: 4px;
         background-color: $color +80;
     }
 }
+
+@mixin inputText{
+    border: 2px solid $black;
+    height: 2rem;
+    border-radius: $radius;
+    font-weight: 600;
+
+    &:focus{
+        outline: none;
+        border: 3px solid $black;
+    }
+}
+
 // ($color, $size)
 @mixin star($color, $size_noUnit){
     $size:(1px*$size_noUnit);
@@ -71,3 +85,4 @@ $radius: 4px;
         content: '';
     }
 }
+

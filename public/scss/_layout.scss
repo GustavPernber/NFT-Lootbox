@@ -270,15 +270,22 @@ main.lootbox_container{
 
 main#create_lootbox{
     background-color: $almost_white;
-    height: 100vh;
+    height: 85rem;
     @include center;
     flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10rem ;
+    gap: 3rem;
 
     form{
-
+        @include center;
+        flex-direction:column ;
         ol{
 
             li{
+                margin-bottom: 3rem;
+                width: 30rem;
+                font-weight: 600;
 
                 &:nth-child(1){
                     
@@ -286,55 +293,47 @@ main#create_lootbox{
                         height: 10rem;
                         @include center;
                         justify-content: space-between;
-
+                        width: 40rem;
                         article.formImgNFT{
                             @include center;
-                            justify-content: flex-start;
+                           
                             flex-direction: column;
                             align-items: flex-start;
-                
-                            height: 10rem;
+                            
                             width: 8rem;
                             z-index: 4;
+
                             figure{
                                 
-                                background-color: $dark_grey;
-                                height: 70%;
-                                width: 100%;
+                                background-color: $superLight_grey;
+                                height: 5rem;
+                                width: 6rem;
+                                border-radius: $radius;
+                                border: none;
 
                                 img{
-                                    height: 100%;
+                                    // display: none;
+                                    border-radius: $radius;
+                                    background: none;
                                     width: 100%;
+                                    height: 100%;
+                                    
+                                    
                                     object-fit: cover;
+                                    
                                     
                                 }
 
                             }
 
                             .inputfile{
-                                width: 0.1px;
-                                height: 0.1px;
-                                opacity: 0;
-                                overflow: hidden;
-                                position: absolute;
-                                z-index: -1;
-                            }
-
-                            .inputfile + label {
-                                margin-top: 0.5rem;
-                                font-size: 0.8rem;
-                                color: $dark_grey_text;
-                                border: solid 2px $black;
-                                padding: 0.2rem;
-                                border-radius: $radius;
-                                display: inline-block;
+                                margin-top: 1rem;
+                                justify-self: flex-end;
+                                @include center;
+                                flex-direction: column;
+                                width: 14rem;
                             }
                             
-                            .inputfile:focus + label,
-                            .inputfile + label:hover {
-                                background-color: rgb(212, 212, 212);
-                                cursor: pointer;
-                            }
 
                         }
                     }
@@ -342,17 +341,125 @@ main#create_lootbox{
                 }
 
                 &:nth-child(2){
-                    
+
+                    >section{
+                        
+                        height: 6rem;
+                        @include center;
+                        justify-content: space-between;
+                        div.rarity_radio_container{
+                            @include center;
+                            flex-direction: column;
+                            
+                            height: 2.5rem;
+
+                            >input[type="radio"]{
+                                appearance: none;
+                                margin: 0;
+                                background-color: none;
+                                width: 5.5rem;
+                                height: 100%;
+                                border-radius: $radius;
+
+
+                                &:hover{
+                                    cursor: pointer;
+                                }
+
+                                &#common{
+                                    border: 3px solid  $common_blue;
+
+                                    &:checked{
+                                        background-color: $common_blue;
+                                    }
+                                    
+                                }
+
+                                &#rare{
+                                    border: 3px solid  $rare_purple;
+
+                                    &:checked{
+                                        background-color: $rare_purple
+                                    }
+                                    
+                                }
+
+                                &#epic{
+                                    border: 3px solid  $epic_yellow;
+
+                                    &:checked{
+                                        background-color: $epic_yellow
+                                    }
+                                    
+                                }
+
+                                
+                            
+
+                            }
+
+                            >label{
+                                position: absolute;
+                                pointer-events: none;
+                                font-weight: 600;
+                            }
+                        }
+                    }
                 }
 
+                &:nth-child(3){
+                    >div.namePriceContainer{
+                       
+                        height: 10rem;
+                        @include center;
+                        flex-direction: column;
+                        // justify-content: space-between;
+                        align-items: flex-start;
+                        gap: 2rem;
+
+                        >input[type="text"]{
+                            @include inputText;
+                            height: 2.7rem;
+                            font-size: 1.2rem;
+                            font-weight: 400;
+                            padding-left: 0.5rem;
+                        }
+                        
+                        >input[type="number"]{
+                            padding-left: 0.5rem;
+                            @include inputText;
+                            height: 3rem;
+                            font-size: 1.7rem;
+                            font-weight: 400;
+                            width: 7rem;
+                        }
 
 
+                    }
+                }
 
             }
 
-
         }
 
+        >input[type="submit"]{
+            width: 7rem;
+            height: 2.5rem;
+            border: 3px solid $black;
+            align-self: flex-end;
+            justify-self: flex-end;
+            border-radius: $radius;
+            font-weight: 500;
+            @include colorize($green);
+            // background-color: $supe;
+            font-size: 1.2rem;
+
+
+            &:hover{
+                cursor: pointer;
+            }
+
+        }
 
     }
 }

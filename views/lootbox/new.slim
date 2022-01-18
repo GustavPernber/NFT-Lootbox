@@ -1,0 +1,64 @@
+main#create_lootbox
+    h1 CREATE YOUR LOOTBOX
+    form action="/lootbox/create" method="post" enctype="multipart/form-data"
+        ol 
+            li Upload your NFT's
+                <div>
+                    <article class="formImgNFT">
+                        <figure><img id="img1"></figure> 
+                        
+
+                        <input type="file" onchange="change(event)"accept="image/*" name="img1" id="1" class="inputfile" />
+                        
+
+                    </article>
+
+                    <article class="formImgNFT">
+                        <figure><img id="img2"></figure> 
+                        
+
+                        <input type="file" onchange="change(event)"accept="image/*" name="img2" id="2" class="inputfile" />
+                        
+
+                    </article>
+
+                    <article class="formImgNFT">
+                        <figure><img id="img3"></figure> 
+                        
+
+                        <input type="file" onchange="change(event)"accept="image/*" name="img3" id="3" class="inputfile" />
+                        
+
+                    </article>
+
+                    
+                </div>
+
+            li Choose rarity level
+                <section>
+                    <div class="rarity_radio_container">
+                        <input id="common" type="radio" value="common" name="rarity" checked=true>
+                        <label for="common"> Common </label>
+                    </div>
+
+                    <div class="rarity_radio_container">
+                        <input id="rare" type="radio" value="rare" name="rarity">
+                        <label for="rare"> Rare </label>
+                    </div>
+
+                    <div class="rarity_radio_container">
+                        <input id="epic" type="radio" value="epic" name="rarity">
+                        <label for="epic"> Epic </label>
+                    </div>
+                </section>
+
+                
+
+            li Name and price 
+                <div class="namePriceContainer">
+                    <input type="text" placeholder="Lootbox title" name="title" maxlength="12">
+                    <input type="number" name="price" placeholder="$$$">
+                </div>
+        input type="submit" value="CREATE"/
+
+script src="../js/main2.js"    

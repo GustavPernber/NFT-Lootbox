@@ -82,7 +82,7 @@ body > header > ul > li.login {
 }
 
 body > header > ul > li.login > a {
-  background-color: #1bdf46;
+  background-color: #00d680;
   color: #111111;
   font-weight: 600;
   border-radius: 4px;
@@ -93,7 +93,7 @@ body > header > ul > li.login > a {
 }
 
 body > header > ul > li.login > a:hover {
-  background-color: #6bff96;
+  background-color: #50ffd0;
 }
 
 body > header > ul > li.signup > a {
@@ -242,14 +242,14 @@ section.lootbox_welcome button:hover {
 section.lootbox_welcome button h3 {
   -webkit-transition: 0.15s;
   transition: 0.15s;
-  background-color: #1bdf46;
+  background-color: #00d680;
   padding: 0.8rem 1.2rem;
   border-radius: 99999px;
   font-weight: 600;
 }
 
 section.lootbox_welcome button h3:hover {
-  background-color: #6bff96;
+  background-color: #50ffd0;
 }
 
 section.lootbox_welcome button > img {
@@ -367,13 +367,13 @@ main.lootbox_container article.lootbox > div.priceBuy > a {
 }
 
 main.lootbox_container article.lootbox > div.priceBuy > a.available {
-  background-color: #1bdf46;
+  background-color: #00d680;
   color: #111111;
   border: #111111 solid 2px;
 }
 
 main.lootbox_container article.lootbox > div.priceBuy > a.available:hover {
-  background-color: #6bff96;
+  background-color: #50ffd0;
 }
 
 main.lootbox_container article.lootbox > div.rating {
@@ -403,7 +403,7 @@ main.lootbox_container article.lootbox > div.rating > img:hover {
 
 main#create_lootbox {
   background-color: #eeeeee;
-  height: 100vh;
+  height: 85rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -417,6 +417,33 @@ main#create_lootbox {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-top: 10rem;
+  gap: 3rem;
+}
+
+main#create_lootbox form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#create_lootbox form ol li {
+  margin-bottom: 3rem;
+  width: 30rem;
+  font-weight: 600;
 }
 
 main#create_lootbox form ol li:nth-child(1) > div {
@@ -433,6 +460,7 @@ main#create_lootbox form ol li:nth-child(1) > div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 40rem;
 }
 
 main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT {
@@ -445,9 +473,6 @@ main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -455,46 +480,196 @@ main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  height: 10rem;
   width: 8rem;
   z-index: 4;
 }
 
 main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT figure {
-  background-color: rgba(100, 100, 100, 0.774);
-  height: 70%;
-  width: 100%;
+  background-color: #e2e2e2;
+  height: 5rem;
+  width: 6rem;
+  border-radius: 4px;
+  border: none;
 }
 
 main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT figure img {
-  height: 100%;
+  border-radius: 4px;
+  background: none;
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+  margin-top: 1rem;
+  justify-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 14rem;
 }
 
-main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile + label {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: #2e2e2e;
-  border: solid 2px #111111;
-  padding: 0.2rem;
+main#create_lootbox form ol li:nth-child(2) > section {
+  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 2.5rem;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0;
+  background-color: none;
+  width: 5.5rem;
+  height: 100%;
   border-radius: 4px;
-  display: inline-block;
 }
 
-main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile:focus + label,
-main#create_lootbox form ol li:nth-child(1) > div article.formImgNFT .inputfile + label:hover {
-  background-color: #d4d4d4;
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#common {
+  border: 3px solid #5b8eee;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#common:checked {
+  background-color: #5b8eee;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#rare {
+  border: 3px solid #c814f5;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#rare:checked {
+  background-color: #c814f5;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#epic {
+  border: 3px solid #e6cf02;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > input[type="radio"]#epic:checked {
+  background-color: #e6cf02;
+}
+
+main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container > label {
+  position: absolute;
+  pointer-events: none;
+  font-weight: 600;
+}
+
+main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer {
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 2rem;
+}
+
+main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="text"] {
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 2.7rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding-left: 0.5rem;
+}
+
+main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="text"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="number"] {
+  padding-left: 0.5rem;
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 3rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+  width: 7rem;
+}
+
+main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="number"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#create_lootbox form > input[type="submit"] {
+  width: 7rem;
+  height: 2.5rem;
+  border: 3px solid #111111;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  justify-self: flex-end;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #00d680;
+  font-size: 1.2rem;
+}
+
+main#create_lootbox form > input[type="submit"]:hover {
+  background-color: #50ffd0;
+}
+
+main#create_lootbox form > input[type="submit"]:hover {
   cursor: pointer;
 }
 
