@@ -1,4 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@-webkit-keyframes fadeFromBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+@keyframes fadeFromBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
 @-webkit-keyframes fadein {
   0% {
     opacity: 0;
@@ -7,6 +38,7 @@
     opacity: 1;
   }
 }
+
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -40,6 +72,22 @@
   }
 }
 
+@keyframes fadeFromBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -58,6 +106,22 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeFromBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(4rem);
+            transform: translateY(4rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
   }
 }
 
@@ -203,6 +267,12 @@ body > header > ul > li.pfp > a {
   text-decoration: none;
 }
 
+body > header > ul > li.pfp > a:hover {
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  border: 2px solid #eeeeee;
+}
+
 body > header > ul > li.pfp > a > p {
   color: #111111;
   display: -webkit-box;
@@ -220,13 +290,6 @@ body > header > ul > li.pfp > a > p {
   height: 100%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-body > header > ul > li.pfp > a > p:hover {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  font-weight: 700;
-  font-size: 1.3rem;
 }
 
 body > header > ul > li.balance {
@@ -1041,9 +1104,9 @@ main#login article.loginError {
 }
 
 main#lootShow {
-  padding: 9rem 0 15rem 0;
+  padding: 1rem 0 15rem 0;
   background: #eeeeee;
-  height: 110vh;
+  height: 120vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1057,18 +1120,22 @@ main#lootShow {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  gap: 6rem;
+}
+
+main#lootShow h3 {
+  font-weight: 400;
+  margin-top: -4rem;
 }
 
 main#lootShow > h1 {
-  font-size: 3rem;
-  padding: 0.8rem 1.2rem;
-  border-radius: 4px;
-  letter-spacing: 8px;
-  -webkit-animation: fadein 5s;
-          animation: fadein 5s;
+  font-size: 2rem;
+  padding: 0.7rem 3rem;
+  border-radius: 8px;
+  -webkit-animation: fadein 6s;
+          animation: fadein 6s;
+  -webkit-box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
+          box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 main#lootShow > h1.common {
@@ -1076,6 +1143,7 @@ main#lootShow > h1.common {
 }
 
 main#lootShow > h1.rare {
+  color: white;
   background: #c814f5;
 }
 
@@ -1084,7 +1152,10 @@ main#lootShow > h1.epic {
 }
 
 main#lootShow > img {
-  max-width: 11rem;
+  max-width: 7rem;
+  margin-top: 3rem;
+  -webkit-animation: fadeFromBottom 1.5s;
+          animation: fadeFromBottom 1.5s;
 }
 
 main#lootShow > figure {
@@ -1101,9 +1172,10 @@ main#lootShow > figure {
 }
 
 main#lootShow > figure > img {
-  -webkit-animation: fadeinPause 4.5s;
-          animation: fadeinPause 4.5s;
-  height: 12rem;
+  border-radius: 8px;
+  -webkit-animation: fadeinPause 4s;
+          animation: fadeinPause 4s;
+  height: 11rem;
 }
 
 *, html {

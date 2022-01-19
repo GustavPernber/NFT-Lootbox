@@ -16,6 +16,22 @@ $epic_yellow:rgb(230, 207, 2);
 
 $radius: 4px;
 
+@keyframes fadeFromBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    
+    50%{
+        opacity: 0.5;
+    }
+    
+    100%{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
 @keyframes fadein {
 
     0% { opacity: 0; }
