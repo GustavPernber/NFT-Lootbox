@@ -4,7 +4,7 @@ main#edit
             img src="#{imgSrc}" alt=""/
 
     section
-        form action="" 
+        form action="../../lootbox/#{lootbox["id"]}/update" method="post"
             h1 EDIT YOUR LOOTBOX
             section
                 div class="rarity_radio_container"
@@ -34,5 +34,8 @@ main#edit
                     input type="text" placeholder="Lootbox title" name="title" maxlength="12" value="#{lootbox["title"]}"
                     input type="number" name="price" placeholder="$$$" value="#{lootbox["price"]}"
                     
-            input type="submit" value="CREATE"/
+            input type="submit" value="EDIT"/
+        
+        form.delete action="../../lootbox/#{lootbox["id"]}/delete" method="post"
+            input type="submit" value="DELETE"/
         

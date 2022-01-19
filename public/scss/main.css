@@ -1341,9 +1341,14 @@ main#edit > section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 main#edit > section > form {
+  width: 22rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1435,7 +1440,7 @@ main#edit > section > form > section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 2rem;
+  width: 100%;
 }
 
 main#edit > section > form > section div.rarity_radio_container {
@@ -1505,8 +1510,8 @@ main#edit > section > form > input[type="submit"] {
   width: 7rem;
   height: 2.5rem;
   border: 3px solid #111111;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   border-radius: 4px;
   font-weight: 500;
   background-color: #00d680;
@@ -1521,10 +1526,42 @@ main#edit > section > form > input[type="submit"]:hover {
   cursor: pointer;
 }
 
+main#edit > section > form.delete {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 0rem;
+  width: 22rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-top: 6rem;
+}
+
+main#edit > section > form.delete > input {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  background-color: #fd1818;
+}
+
+main#edit > section > form.delete > input:hover {
+  background-color: #ff6868;
+}
+
 main#profileShow {
   height: auto;
   padding: 3.5rem 0 20rem 0;
-  background-color: lightcoral;
+  background-color: #eeeeee;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto auto;
@@ -1540,8 +1577,7 @@ main#profileShow header.profile {
   -ms-grid-row: 1;
   grid-row: 1;
   height: 10rem;
-  background-color: red;
-  padding: 0 4rem;
+  padding: 8rem 4rem 10rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1583,22 +1619,25 @@ main#profileShow header.profile div.namePFP figure {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 99999px;
-  background-color: red;
 }
 
 main#profileShow header.profile div.balance {
   padding: 1rem 2rem;
-  background-color: rgba(100, 100, 100, 0.774);
+  background-color: #9b9b9b;
   border-radius: 8px;
 }
 
-main#profileShow section.ownBoxes {
-  height: 20rem;
-  background-color: red;
-}
-
-main#profileShow section.boughtBoxes {
-  background-color: blue;
+main#profileShow section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  padding: 3rem 4rem;
+  height: auto;
 }
 
 main#profileShow article.ownLootbox {
@@ -1647,7 +1686,6 @@ main#profileShow article.ownLootbox .priceRarity h3.common {
 
 main#profileShow article.ownLootbox .priceRarity h3.rare {
   background-color: #c814f5;
-  color: #eeeeee;
 }
 
 main#profileShow article.ownLootbox .priceRarity h3.epic {
@@ -1697,7 +1735,8 @@ main#profileShow article.ownLootbox div.editLink {
 }
 
 main#profileShow article.ownLootbox div.editLink > a {
-  background-color: #eeeeee;
+  background-color: #00d680;
+  border-radius: 4px;
   border: 2px solid #111111;
   text-decoration: none;
   color: #111111;
@@ -1706,7 +1745,7 @@ main#profileShow article.ownLootbox div.editLink > a {
 }
 
 main#profileShow article.ownLootbox div.editLink > a:hover {
-  background-color: white;
+  background-color: #50ffd0;
 }
 
 *, html {

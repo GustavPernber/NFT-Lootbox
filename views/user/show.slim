@@ -10,24 +10,45 @@ main#profileShow
             
 
     section.ownBoxes 
+        h2 You've made these!
+
+        - own_lootboxes.each do |lootbox|
+                article.ownLootbox 
+                    div.nameIcon 
+                        h3 #{lootbox["title"]} 
+                        img src="../../../img/lootbox_icon.png" alt=""/ 
+                    div.priceRarity
+                        
+                        p Price: <strong>#{lootbox["price"]}$</strong>
+
+                        -if lootbox["rarity"]=="common"
+                            h3.common COMMON
+                        -elsif lootbox["rarity"]=="rare"
+                            h3.rare RARE 
+                        -elsif lootbox["rarity"]=="epic"
+                            h3.epic EPIC
+
+                    div.editLink    
+                        a href="../../lootbox/edit/#{lootbox["id"]}" EDIT 
     section.boughtBoxes
-    / - own_lootboxes.each do |lootbox|
-    /         article.ownLootbox 
-    /             div.nameIcon 
-    /                 h3 #{lootbox["title"]} 
-    /                 img src="../../../img/lootbox_icon.png" alt=""/ 
-    /             div.priceRarity
-                    
-    /                 p Price: <strong>#{lootbox["price"]}</strong>$
+        h2 You've bought these!
+        - boughtBoxes.each do |lootbox|
+            article.ownLootbox 
+                    div.nameIcon 
+                        h3 #{lootbox["title"]} 
+                        img src="../../../img/lootbox_icon.png" alt=""/ 
+                    div.priceRarity
+                        
+                        p Price: <strong>#{lootbox["price"]}$</strong>
 
-    /                 -if lootbox["rarity"]=="common"
-    /                     h3.common COMMON
-    /                 -elsif lootbox["rarity"]=="rare"
-    /                     h3.rare RARE 
-    /                 -elsif lootbox["rarity"]=="epic"
-    /                     h3.epic EPIC
+                        -if lootbox["rarity"]=="common"
+                            h3.common COMMON
+                        -elsif lootbox["rarity"]=="rare"
+                            h3.rare RARE 
+                        -elsif lootbox["rarity"]=="epic"
+                            h3.epic EPIC
 
-    /             div.editLink    
-    /                 a href="" EDIT 
+                    div.editLink   
+                        a href="../../lootbox/show/#{lootbox["id"]}" VIEW 
 
            
