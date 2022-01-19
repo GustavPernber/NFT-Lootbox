@@ -184,6 +184,18 @@ get('/user/show/:id')do
 end
 
 
+post('/lootbox/:id/delete')do
+    id=params[:id]
+    
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    db.results_as_hash=true
+
+    db.execute('DELETE FROM lootbox WHERE id=?', id)
+    db.execute('DELETE FROM lootbox_ownership WHERE lootbox_id=?', id)
+
+    redirect("/user/show/#{session[:id]}")
+
+end
 
 post('/lootbox/:id/update')do
     id=params[:id]

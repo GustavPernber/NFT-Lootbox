@@ -254,7 +254,7 @@ main.lootbox_container{
     justify-content: left;
     align-items: flex-start;
     flex-direction: column;
-    padding: 15rem 4rem 20rem 4rem;
+    padding: 15rem 6rem 20rem 6rem;
     gap: 1rem;
 
     article.lootbox {
@@ -685,9 +685,6 @@ main#lootShow{
     @include center;
     flex-direction: column;
     gap: 6rem;
-
-    
-
 
 
     h3{

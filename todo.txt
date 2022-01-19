@@ -3,4 +3,6 @@ visa sin profil
     ändra sitt namn
 EDIT
 
+delete
+
 rating

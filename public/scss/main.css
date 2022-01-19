@@ -502,7 +502,7 @@ main.lootbox_container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 15rem 4rem 20rem 4rem;
+  padding: 15rem 6rem 20rem 6rem;
   gap: 1rem;
 }
 
