@@ -1,13 +1,31 @@
-main#lootShow
-    -if lootbox["rarity"]=="common"
-        h1.common COMMON
-    -elsif lootbox["rarity"]=="rare"
-        h1.rare RARE 
-    -elsif lootbox["rarity"]=="epic"
-        h1.epic EPIC
-    h3 #{lootbox["title"]}
 
-    figure 
-        -images.each do |imgSrc|
-            img src="#{imgSrc}" alt=""/
-    img src="../../img/open-box.png" alt=""/
+-if session[:boughtBoxes].include?(lootbox["id"])
+    main.bought
+        aside
+            -images.each do |imgSrc|
+                img src="#{imgSrc}" alt=""/
+        section.bought 
+            h1 You bought this! 
+            h2 #{lootbox["title"]}
+            h4 Created by: #{creator}
+            -if lootbox["rarity"]=="common"
+                h1.common COMMON
+            -elsif lootbox["rarity"]=="rare"
+                h1.rare RARE 
+            -elsif lootbox["rarity"]=="epic"
+                h1.epic EPIC
+-else
+    main#lootShow
+        -if lootbox["rarity"]=="common"
+            h1.common COMMON
+        -elsif lootbox["rarity"]=="rare"
+            h1.rare RARE 
+        -elsif lootbox["rarity"]=="epic"
+            h1.epic EPIC
+        h3 #{lootbox["title"]}
+        h4 Created by: #{creator}
+
+        figure 
+            -images.each do |imgSrc|
+                img src="#{imgSrc}" alt=""/
+        img src="../../img/open-box.png" alt=""/

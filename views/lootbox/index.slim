@@ -18,7 +18,7 @@ main.lootbox_container
             div.priceBuy
                 p   
                     |Price: 
-                    strong #{lootbox["price"]}$ 
+                    strong #{lootbox["price"]}$ #{lootbox["id"]}
                 
 
                 -if session[:auth]
@@ -32,8 +32,9 @@ main.lootbox_container
                         a.tooExpensive Too expensive 
                         
                     -else 
-       
-                        a.available href="lootbox/show/#{lootbox["id"]}" Get lootbox
+                        form action="buy/#{lootbox["id"]}"  method="post"
+                            input.available type="submit" value="Get lootbox"/ 
+                            / a.available href="lootbox/show/#{lootbox["id"]}" Get lootbox
 
                 -else   
                     a.notAuth href="/login" Not logged in

@@ -295,6 +295,29 @@ main.lootbox_container{
                 font-size: 1.2rem;
             }
 
+            form{
+
+                input.available{
+    
+                    // @include center;
+                    width: 7.5rem;
+                    height: 2.2rem;
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    // text-decoration: none;
+
+                    border-radius: $radius;
+                    @include colorize($green);
+                    color: $black;
+                    border: $black solid 2px; 
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    
+                }
+            }
+
             >a{
                 @include center;
                 width: 7.5rem;
@@ -304,11 +327,7 @@ main.lootbox_container{
 
                 border-radius: $radius;
 
-                &.available{
-                    @include colorize($green);
-                    color: $black;
-                    border: $black solid 2px; 
-                }
+                
 
                 &.notAuth{
                     @include colorize(rgb(184, 184, 184));
@@ -653,9 +672,18 @@ main#lootShow{
     flex-direction: column;
     gap: 6rem;
 
+    
+
+
+
     h3{
-        font-weight: 400;
+        font-weight: 500;
         margin-top: -4rem;
+    }
+
+    h4{
+        margin-top: -4rem;
+        font-weight: 400;
     }
 
     >h1{
@@ -709,4 +737,80 @@ main#lootShow{
 
         
     }
+}
+
+main.bought{
+    display: grid;
+    grid-template-columns: 40% auto;
+    height: auto;
+    padding: 10rem 0 20rem 0;
+    background-color: $almost_white;
+    >aside{
+        
+        @include center;
+        flex-direction: column;
+        gap: 4rem ;
+        >img{
+            width: 11rem;
+            border-radius: $radius*2;
+        }
+    }
+
+    >section.bought{
+        
+        @include center;
+        flex-direction: column;
+        height: 30rem;
+        gap: 3rem;
+
+        >h1{
+            font-size: 3rem;
+
+            &.common, &.rare, &.epic{
+                font-size: 1.5rem;
+                padding: 0.7rem 3rem;
+                border-radius: $radius*2;
+                box-shadow:
+                2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057),
+                6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065),
+                12.5px 12.5px 10px rgba(0, 0, 0, 0.065),
+                22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063),
+                41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06),
+                100px 100px 80px rgba(0, 0, 0, 0.07)
+                ;
+
+
+                
+
+            }
+
+            &.common{
+                background: $common_blue;    
+            }
+            
+            &.rare{
+                color: white;
+              
+    
+                background: $rare_purple;
+                
+                
+            }
+            
+            &.epic{
+                background: $epic_yellow;
+            }
+
+        }
+
+        >h4{
+            font-weight: 500;
+        }
+
+
+
+
+
+    }
+
 }
