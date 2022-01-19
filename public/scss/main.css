@@ -1,4 +1,87 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeinPause {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinPause {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinPause {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinPause {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 :root {
   font-family: 'IBM Plex Mono', monospace;
 }
@@ -460,15 +543,24 @@ main.lootbox_container article.lootbox > div.priceBuy > a.notAuth:hover {
   background-color: white;
 }
 
-main.lootbox_container article.lootbox > div.priceBuy > a.tooExpensive {
-  background-color: #b8b8b8;
+main.lootbox_container article.lootbox > div.priceBuy > a.ownBox {
+  background-color: #67cbf3;
+  font-weight: 700;
   color: #424242;
   border: #111111 solid 2px;
   font-size: 0.8rem;
 }
 
-main.lootbox_container article.lootbox > div.priceBuy > a.tooExpensive:hover {
-  background-color: white;
+main.lootbox_container article.lootbox > div.priceBuy > a.ownBox:hover {
+  background-color: #b7ffff;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.tooExpensive {
+  background-color: #b8b8b8;
+  cursor: default;
+  color: #424242;
+  border: #111111 solid 2px;
+  font-size: 0.8rem;
 }
 
 main.lootbox_container article.lootbox > div.rating {
@@ -946,6 +1038,72 @@ main#login article.loginError {
   font-size: 0.8rem;
   z-index: 100;
   bottom: 0;
+}
+
+main#lootShow {
+  padding: 9rem 0 15rem 0;
+  background: #eeeeee;
+  height: 110vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main#lootShow > h1 {
+  font-size: 3rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  letter-spacing: 8px;
+  -webkit-animation: fadein 5s;
+          animation: fadein 5s;
+}
+
+main#lootShow > h1.common {
+  background: #5b8eee;
+}
+
+main#lootShow > h1.rare {
+  background: #c814f5;
+}
+
+main#lootShow > h1.epic {
+  background: #e6cf02;
+}
+
+main#lootShow > img {
+  max-width: 11rem;
+}
+
+main#lootShow > figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3rem;
+}
+
+main#lootShow > figure > img {
+  -webkit-animation: fadeinPause 4.5s;
+          animation: fadeinPause 4.5s;
+  height: 12rem;
 }
 
 *, html {

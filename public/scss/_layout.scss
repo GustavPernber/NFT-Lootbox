@@ -316,8 +316,19 @@ main.lootbox_container{
                     font-size: 0.8rem
                 }
 
+                &.ownBox{
+                    @include colorize($cyan_blue);
+        
+                    font-weight: 700;
+                    color: rgb(66, 66, 66);
+                    border: $black solid 2px; 
+                    font-size: 0.8rem;
+                    
+                }
+
                 &.tooExpensive{
-                    @include colorize(rgb(184, 184, 184));
+                    background-color: rgb(184, 184, 184);
+                    cursor:default;
                     color: rgb(66, 66, 66);
                     border: $black solid 2px; 
                     font-size: 0.8rem
@@ -621,5 +632,59 @@ main#login{
         
         z-index: 100;
         bottom: 0;
+    }
+}
+
+main#lootShow{
+    padding: 9rem 0 15rem 0;
+    background: $almost_white;
+    height: 110vh;
+    @include center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3{
+        font-weight: 200;
+        colo
+    }
+
+    >h1{
+        font-size: 3rem;
+        padding: 0.8rem 1.2rem;
+        border-radius: $radius;
+        letter-spacing: 8px;
+        animation: fadein 5s;
+        &.common{
+            background: $common_blue;    
+        }
+
+        &.rare{
+            background: $rare_purple;
+            
+        }
+        
+        &.epic{
+            background: $epic_yellow;
+        }
+
+
+
+    }
+
+    >img{
+     max-width: 11rem;   
+    }
+
+    >figure{
+        @include center;
+        // background: lightblue;
+        gap: 3rem;
+        >img{
+            animation: fadeinPause 4.5s;
+            height: 12rem;
+
+        }
+
+        
     }
 }

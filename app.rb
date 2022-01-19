@@ -60,6 +60,41 @@ get('/register')do
     slim(:register)
 end
 
+get('/lootbox/show/:id')do
+    id=params[:id]
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    db.results_as_hash=true
+    result=db.execute("SELECT * FROM Lootbox WHERE id=?", id).first
+
+    i=0
+    imgSources=[]
+    
+    while i<4
+        if result["img#{i+1}"]!=nil
+            
+            imgBlob=result["img#{i+1}"]
+            imgSources<<"data:image/png;base64,#{imgBlob}"
+           
+       end
+       i+=1
+    end 
+
+    # srcString="data:image/png;base64,#{imgBlob}"
+    # send_file ''
+    # "<img src=#{imgBlob}>"
+    # srcString="data:image/png;base64, #{imgBlob}"
+    # blobString="lol"
+
+
+
+    # "#{imgSources.length}"
+    # "<img src=#{srcString}>"
+
+    slim(:'lootbox/show', locals:{images:imgSources, lootbox:result})
+    # slim(:'lootbox/show')
+end
+
+
 post('/login')do
     username=params[:username]
     password=params[:password]
@@ -108,7 +143,9 @@ post('/register')do
             password_digest=BCrypt::Password.create(password)
             db=SQLite3::Database.new('db/nft-lootbox.db')
             db.execute('INSERT INTO users (username, pwdigest, colour, balance) VALUES(?, ?, ?, ?)', username, password_digest, colour, balance)
-            id=db.execute("SELECT id FROM users WHERE username=?", username).first
+            # db.results_as_hash=true
+            id=db.execute("SELECT id FROM users WHERE username=?", username).first.first
+            
             session[:error]=false
             session[:auth]=true
             session[:id]=id
@@ -125,7 +162,6 @@ post('/register')do
             redirect('/register')
         end
     else
-        p 'dont match'
         session[:registerError]=true
         redirect('/register')
     end
@@ -149,38 +185,25 @@ post('/lootbox/create') do
     end
     
     db=SQLite3::Database.new('db/nft-lootbox.db')
-   
-    
+    creator_id=session[:id]
+
     if images.length==1
-       
-
-        # png=File.open "public/img.png", 'rb'
-
         enc1= Base64.encode64(images[0].read)  
-
-    #    read1=images[0].read
-    #    blob1=SQLite3::Blob.new read1
-    #    p blob1
-       db.execute("INSERT INTO Lootbox (img1, rarity, title, price) VALUES(?, ?, ?, ?)", enc1, rarity, title, price)
+        
+        db.execute("INSERT INTO Lootbox (img1, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?)", enc1, rarity, title, price, creator_id)
     elsif images.length==2
-        read1=images[0].read
-        blob1=SQLite3::Blob.new read1
-        read2=images[1].read
-        blob2=SQLite3::Blob.new read2
+        enc1= Base64.encode64(images[0].read)  
+        enc2= Base64.encode64(images[1].read)  
         
 
         
-        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price) VALUES(?, ?, ?, ?, ?)", blob1, blob2, rarity, title, price)
+        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?, ?)", enc1, enc2, rarity, title, price, creator_id)
     elsif images.length==3
-        read1=images[0].read
-        blob1=SQLite3::Blob.new read1
-        read2=images[1].read
-        blob2=SQLite3::Blob.new read2
-        read3=images[2].read
-        blob2=SQLite3::Blob.new read3
+        enc1= Base64.encode64(images[0].read)  
+        enc2= Base64.encode64(images[1].read)  
+        enc3= Base64.encode64(images[2].read)  
         
-        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price) VALUES(?,?,?, ?, ?, ?)", blob1, blob2, blob3, rarity, title, price)
-      
+        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price, creator_id) VALUES(?, ?,?,?, ?, ?, ?)", enc1, enc2, enc3, rarity, title, price, creator_id)
     end
 
     redirect('/lootbox/new')

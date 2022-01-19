@@ -3,6 +3,7 @@ $almost_white:rgb(238, 238, 238);
 $superLight_grey:rgb(226, 226, 226);
 $orange: rgb(255, 136, 0);
 $green: #00d680;
+$cyan_blue:rgb(103, 203, 243);
 $red:rgb(253, 24, 24);
 
 
@@ -14,6 +15,27 @@ $rare_purple: rgb(200, 20, 245);
 $epic_yellow:rgb(230, 207, 2);
 
 $radius: 4px;
+
+@keyframes fadein {
+
+    0% { opacity: 0; }
+    100%{
+        opacity: 1;
+    }
+    
+}
+
+@keyframes fadeinPause {
+
+    0% { opacity: 0; }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
 
 @mixin center {
     display: flex;

@@ -1,0 +1,14 @@
+main#lootShow
+    -lootbox["rarity"]="rare"
+    -if lootbox["rarity"]=="common"
+        h1.common COMMON
+    -elsif lootbox["rarity"]=="rare"
+        h1.rare RARE 
+    -elsif lootbox["rarity"]=="epic"
+        h1.epic EPIC
+    h3 #{lootbox["title"]}
+
+    figure 
+        -images.each do |imgSrc|
+            img src="#{imgSrc}" alt=""/
+    img src="../../img/open-box.png" alt=""/
