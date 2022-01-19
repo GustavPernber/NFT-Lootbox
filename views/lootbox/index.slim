@@ -18,26 +18,21 @@ main.lootbox_container
             div.priceBuy
                 p   
                     |Price: 
-                    strong #{lootbox["price"]}$
+                    strong #{lootbox["price"]}$ 
                 
-
-                / auth 
-                / created by 
-                / owned 
-                / price
 
                 -if session[:auth]
                     -if lootbox["creator_id"]==session[:id]#created by 
                         a.ownBox href="lootbox/show/#{lootbox["id"]}" You made this!
 
-                    / -elsif #already owned
+                    -elsif session[:boughtBoxes].include?(lootbox["id"])
+                        a.boughtBox href="lootbox/show/#{lootbox["id"]}" Already bought!
 
                     -elsif lootbox["price"]>session[:balance] #too expensive
                         a.tooExpensive Too expensive 
                         
                     -else 
- 
-                        
+       
                         a.available href="lootbox/show/#{lootbox["id"]}" Get lootbox
 
                 -else   

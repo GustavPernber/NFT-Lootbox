@@ -11,18 +11,8 @@ get('/') do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
     lootboxes=db.execute("SELECT * FROM Lootbox")
-
-    # session[:auth]
-    # session[:id]
-    # session[:balance]
-    # session[:colour]
-    # session[:firstLetter]
-    # if session[:auth]
-    #     user=db.execute("SELECT * FROM Users WHERE id=?", session[:id]).first
-    #     p user
-    #     slim(:'lootbox/index', locals:{lootboxes:lootboxes, user:user})
-    # else
-    # end 
+    
+    
     slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
@@ -79,19 +69,10 @@ get('/lootbox/show/:id')do
        i+=1
     end 
 
-    # srcString="data:image/png;base64,#{imgBlob}"
-    # send_file ''
-    # "<img src=#{imgBlob}>"
-    # srcString="data:image/png;base64, #{imgBlob}"
-    # blobString="lol"
-
-
-
-    # "#{imgSources.length}"
-    # "<img src=#{srcString}>"
+    
+    
 
     slim(:'lootbox/show', locals:{images:imgSources, lootbox:result})
-    # slim(:'lootbox/show')
 end
 
 
@@ -113,6 +94,13 @@ post('/login')do
             session[:balance]=result["balance"]
             session[:colour]=result["colour"]
             session[:username]=result["username"]
+
+            db.results_as_hash=false
+            boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+            boughtBoxes = boughtResult.map do |id|
+                id=id.first
+            end 
+            session[:boughtBoxes]=boughtBoxes
 
 
             redirect('/')
@@ -153,6 +141,14 @@ post('/register')do
             session[:balance]=balance
             session[:colour]=colour
             session[:username]=username
+
+            db.results_as_hash=false
+            boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+            boughtBoxes = boughtResult.map do |id|
+                id=id.first
+            end 
+            session[:boghtBoxes]=boughtBoxes
+
 
             redirect('/')
             

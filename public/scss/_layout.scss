@@ -318,13 +318,22 @@ main.lootbox_container{
                 }
 
                 &.ownBox{
-                    @include colorize($cyan_blue);
+                    @include colorize($orange);
         
                     font-weight: 700;
                     color: rgb(66, 66, 66);
                     border: $black solid 2px; 
                     font-size: 0.8rem;
                     
+                }
+
+                &.boughtBox{
+                    @include colorize($cyan_blue);
+                    
+                    font-weight: 700;
+                    color: rgb(66, 66, 66);
+                    border: $black solid 2px; 
+                    font-size: 0.7rem;
                 }
 
                 &.tooExpensive{

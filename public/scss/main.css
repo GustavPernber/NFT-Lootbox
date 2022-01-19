@@ -607,7 +607,7 @@ main.lootbox_container article.lootbox > div.priceBuy > a.notAuth:hover {
 }
 
 main.lootbox_container article.lootbox > div.priceBuy > a.ownBox {
-  background-color: #67cbf3;
+  background-color: #ff8800;
   font-weight: 700;
   color: #424242;
   border: #111111 solid 2px;
@@ -615,6 +615,18 @@ main.lootbox_container article.lootbox > div.priceBuy > a.ownBox {
 }
 
 main.lootbox_container article.lootbox > div.priceBuy > a.ownBox:hover {
+  background-color: #ffd850;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.boughtBox {
+  background-color: #67cbf3;
+  font-weight: 700;
+  color: #424242;
+  border: #111111 solid 2px;
+  font-size: 0.7rem;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.boughtBox:hover {
   background-color: #b7ffff;
 }
 
