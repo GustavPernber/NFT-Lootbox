@@ -1,5 +1,6 @@
 
 -if session[:boughtBoxes].include?(lootbox["id"])
+    
     main.bought
         aside
             -images.each do |imgSrc|
@@ -15,6 +16,7 @@
             -elsif lootbox["rarity"]=="epic"
                 h1.epic EPIC
 -else
+    -session[:boughtBoxes]=boughtBoxes
     main#lootShow
         -if lootbox["rarity"]=="common"
             h1.common COMMON

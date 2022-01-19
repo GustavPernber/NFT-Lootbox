@@ -17,7 +17,7 @@ html lang="en"
                     li.balance 
                         p Balance: <strong>#{session[:balance]}</strong>$
                     li.pfp 
-                        a href="" style="background-color: ##{session[:colour]};"
+                        a href="/user/show/#{session[:id]}" style="background-color: ##{session[:colour]};"
                                 p #{session[:username].split('')[0]}
                     li.logout 
                         a href="/logout" Log out

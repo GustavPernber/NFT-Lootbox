@@ -639,6 +639,22 @@ main.lootbox_container article.lootbox > div.priceBuy > a.boughtBox:hover {
   background-color: #b7ffff;
 }
 
+main.lootbox_container article.lootbox > div.priceBuy > a.available {
+  width: 7.5rem;
+  height: 2.2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #00d680;
+  color: #111111;
+  border: #111111 solid 2px;
+}
+
+main.lootbox_container article.lootbox > div.priceBuy > a.available:hover {
+  background-color: #50ffd0;
+}
+
 main.lootbox_container article.lootbox > div.priceBuy > a.tooExpensive {
   background-color: #b8b8b8;
   cursor: default;
@@ -897,7 +913,7 @@ main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[typ
   font-weight: 600;
   height: 2.7rem;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 500;
   padding-left: 0.5rem;
 }
 
@@ -1281,6 +1297,416 @@ main.bought > section.bought > h1.epic {
 
 main.bought > section.bought > h4 {
   font-weight: 500;
+}
+
+main#edit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% auto;
+      grid-template-columns: 40% auto;
+  height: auto;
+  padding: 10rem 0 20rem 0;
+  background-color: #eeeeee;
+}
+
+main#edit > aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+}
+
+main#edit > aside > img {
+  width: 11rem;
+  border-radius: 8px;
+}
+
+main#edit > section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main#edit > section > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 20rem;
+  gap: 3rem;
+}
+
+main#edit > section > form > h1 {
+  font-weight: 500;
+}
+
+main#edit > section > form > div.namePriceContainer {
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 2rem;
+}
+
+main#edit > section > form > div.namePriceContainer > input[type="text"] {
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 2.7rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-left: 0.5rem;
+}
+
+main#edit > section > form > div.namePriceContainer > input[type="text"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#edit > section > form > div.namePriceContainer > input[type="number"] {
+  padding-left: 0.5rem;
+  border: 2px solid #111111;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  height: 3rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+  width: 7rem;
+}
+
+main#edit > section > form > div.namePriceContainer > input[type="number"]:focus {
+  outline: none;
+  border: 3px solid #111111;
+}
+
+main#edit > section > form > section {
+  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 2rem;
+}
+
+main#edit > section > form > section div.rarity_radio_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 2.5rem;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0;
+  background-color: none;
+  width: 5.5rem;
+  height: 100%;
+  border-radius: 4px;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#common {
+  border: 3px solid #5b8eee;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#common:checked {
+  background-color: #5b8eee;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#rare {
+  border: 3px solid #c814f5;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#rare:checked {
+  background-color: #c814f5;
+  color: #eeeeee;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#epic {
+  border: 3px solid #e6cf02;
+}
+
+main#edit > section > form > section div.rarity_radio_container > input[type="radio"]#epic:checked {
+  background-color: #e6cf02;
+}
+
+main#edit > section > form > section div.rarity_radio_container > label {
+  position: absolute;
+  pointer-events: none;
+  font-weight: 600;
+}
+
+main#edit > section > form > input[type="submit"] {
+  width: 7rem;
+  height: 2.5rem;
+  border: 3px solid #111111;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #00d680;
+  font-size: 1.2rem;
+}
+
+main#edit > section > form > input[type="submit"]:hover {
+  background-color: #50ffd0;
+}
+
+main#edit > section > form > input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+main#profileShow {
+  height: auto;
+  padding: 3.5rem 0 20rem 0;
+  background-color: lightcoral;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+main#profileShow header.profile {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  height: 10rem;
+  background-color: red;
+  padding: 0 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+main#profileShow header.profile div.namePFP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+
+main#profileShow header.profile div.namePFP figure {
+  height: 8rem;
+  width: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 99999px;
+  background-color: red;
+}
+
+main#profileShow header.profile div.balance {
+  padding: 1rem 2rem;
+  background-color: rgba(100, 100, 100, 0.774);
+  border-radius: 8px;
+}
+
+main#profileShow section.ownBoxes {
+  height: 20rem;
+  background-color: red;
+}
+
+main#profileShow section.boughtBoxes {
+  background-color: blue;
+}
+
+main#profileShow article.ownLootbox {
+  background-color: #e2e2e2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1;
+      grid-template-rows: 1;
+  max-width: 30rem;
+  width: 100%;
+  height: 7rem;
+  border: #111111 solid 3px;
+}
+
+main#profileShow article.ownLootbox .priceRarity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.8rem;
+}
+
+main#profileShow article.ownLootbox .priceRarity p {
+  font-size: 1.1rem;
+}
+
+main#profileShow article.ownLootbox .priceRarity h3 {
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+}
+
+main#profileShow article.ownLootbox .priceRarity h3.common {
+  background-color: #5b8eee;
+}
+
+main#profileShow article.ownLootbox .priceRarity h3.rare {
+  background-color: #c814f5;
+  color: #eeeeee;
+}
+
+main#profileShow article.ownLootbox .priceRarity h3.epic {
+  background-color: #e6cf02;
+}
+
+main#profileShow article.ownLootbox > div.nameIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.4rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#profileShow article.ownLootbox > div.nameIcon > h3 {
+  font-weight: 500;
+}
+
+main#profileShow article.ownLootbox > div.nameIcon > img {
+  max-width: 3rem;
+  width: 100%;
+}
+
+main#profileShow article.ownLootbox div.editLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#profileShow article.ownLootbox div.editLink > a {
+  background-color: #eeeeee;
+  border: 2px solid #111111;
+  text-decoration: none;
+  color: #111111;
+  padding: 0.3rem 0.5rem;
+  font-weight: 600;
+}
+
+main#profileShow article.ownLootbox div.editLink > a:hover {
+  background-color: white;
 }
 
 *, html {

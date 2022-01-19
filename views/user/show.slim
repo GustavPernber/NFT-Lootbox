@@ -1,0 +1,33 @@
+main#profileShow
+    header.profile 
+        div.namePFP
+            figure style="background-color:##{session[:colour]}"
+                h1 #{session[:username].split('').first} 
+            h1 #{session[:username]}
+
+        div.balance
+            h3 Balance: #{session[:balance]}$
+            
+
+    section.ownBoxes 
+    section.boughtBoxes
+    / - own_lootboxes.each do |lootbox|
+    /         article.ownLootbox 
+    /             div.nameIcon 
+    /                 h3 #{lootbox["title"]} 
+    /                 img src="../../../img/lootbox_icon.png" alt=""/ 
+    /             div.priceRarity
+                    
+    /                 p Price: <strong>#{lootbox["price"]}</strong>$
+
+    /                 -if lootbox["rarity"]=="common"
+    /                     h3.common COMMON
+    /                 -elsif lootbox["rarity"]=="rare"
+    /                     h3.rare RARE 
+    /                 -elsif lootbox["rarity"]=="epic"
+    /                     h3.epic EPIC
+
+    /             div.editLink    
+    /                 a href="" EDIT 
+
+           

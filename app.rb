@@ -50,37 +50,41 @@ get('/register')do
     slim(:register)
 end
 
-get('/lootbox/show/:id')do
-    id=params[:id]
+get('/lootbox/edit/:id')do
+    lootbox_id=params[:id]
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
-    result=db.execute("SELECT * FROM Lootbox WHERE id=?", id).first
 
-    i=0
-    imgSources=[]
+    lootbox=db.execute('SELECT * FROM lootbox WHERE id=?', lootbox_id).first
     
-    while i<4
-        if result["img#{i+1}"]!=nil
-            
-            imgBlob=result["img#{i+1}"]
-            imgSources<<"data:image/png;base64,#{imgBlob}"
-           
-       end
-       i+=1
-    end 
 
-    creator=db.execute("SELECT username FROM Users WHERE id=?", result["creator_id"]).first["username"]
 
-    # if session[:]
+
+    if lootbox["creator_id"]==session[:id] #creator id samma som session id, 
+
+        imgSources=[]
         
-    # end
+        i=0
+        while i<4
+            if lootbox["img#{i+1}"]!=nil
+                
+                imgBlob=lootbox["img#{i+1}"]
+                imgSources<<"data:image/png;base64,#{imgBlob}"
+            
+            end
+            i+=1
+        end
 
+        db.results_as_hash=false
+        creator=db.execute("SELECT username FROM Users WHERE id=?", lootbox["creator_id"]).first.first
 
-    slim(:'lootbox/show', locals:{images:imgSources, lootbox:result, creator:creator})
+       slim(:'lootbox/edit', locals:{lootbox:lootbox, images:imgSources, creator:creator})
+    else
+        "401 Not auth"
+    end
 end
 
-
-post('/buy/:id') do
+get('/lootbox/show/:id') do
     lootbox_id=params[:id]
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
@@ -103,24 +107,62 @@ post('/buy/:id') do
         end 
 
         
+        #Dra av pengar
         creator=db.execute("SELECT username FROM Users WHERE id=?", lootbox["creator_id"]).first.first
-        p creator
-        # if session[:]
-            
-        # end
 
+        new_balance=session[:balance]-lootbox["price"]
+        db.execute("UPDATE users SET balance=? WHERE id=?", new_balance, session[:id])
 
-        slim(:'lootbox/show', locals:{images:imgSources, lootbox:lootbox, creator:creator})
+        session[:balance]=new_balance
 
-
+        
+        
+        
+        #Lägg till i köpta lådor
+        
+        db.execute("INSERT INTO lootbox_ownership (lootbox_id, user_id) VALUES (?,?)", lootbox["id"], session[:id])
+        
+        db.results_as_hash=false
+        
+        boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+        
+        boughtBoxes = boughtResult.map do |id|
+            id=id.first
+        end 
+        
+        
+        
+        slim(:'lootbox/show', locals:{images:imgSources, lootbox:lootbox, creator:creator, boughtBoxes:boughtBoxes})
 
     else #not auth
         "401 Error!"
     end
     
+end
+
+get('/user/show/:id')do
+    id=params[:id].to_i
+
+    if session[:id]==id
+        db=SQLite3::Database.new('db/nft-lootbox.db')
+        db.results_as_hash=true
+        own_lootboxes=db.execute('SELECT * FROM lootbox WHERE creator_id=?', session[:id])
+
+        slim(:'user/show', locals:{own_lootboxes:own_lootboxes})
+
+
+    else
+        p session[:id]
+        p id
+      "session id: #{session[:id]}."  
+    end
 
 
 end
+
+
+
+
 
 post('/login')do
     username=params[:username]
@@ -143,11 +185,11 @@ post('/login')do
 
             db.results_as_hash=false
             boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+
             boughtBoxes = boughtResult.map do |id|
                 id=id.first
             end 
             session[:boughtBoxes]=boughtBoxes
-
 
             redirect('/')
             

@@ -1,0 +1,38 @@
+main#edit 
+    aside
+        -images.each do |imgSrc|
+            img src="#{imgSrc}" alt=""/
+
+    section
+        form action="" 
+            h1 EDIT YOUR LOOTBOX
+            section
+                div class="rarity_radio_container"
+                    -if lootbox["rarity"]=="common"
+                        input id="common" type="radio" value="common" name="rarity" checked=true
+                    -else   
+                        input id="common" type="radio" value="common" name="rarity" 
+
+                    label for="common" Common 
+
+                div class="rarity_radio_container"
+                    -if lootbox["rarity"]=="rare"
+                        input id="rare" type="radio" value="rare" name="rarity" checked=true
+                    -else
+                        input id="rare" type="radio" value="rare" name="rarity" 
+                    label for="rare" Rare 
+
+                div class="rarity_radio_container"
+                    -if lootbox["rarity"]=="epic"
+                        input id="epic" type="radio" value="epic" name="rarity" checked=true
+                    -else
+                        input id="epic" type="radio" value="epic" name="rarity" 
+
+                    label for="epic" Epic 
+                
+            div class="namePriceContainer"
+                    input type="text" placeholder="Lootbox title" name="title" maxlength="12" value="#{lootbox["title"]}"
+                    input type="number" name="price" placeholder="$$$" value="#{lootbox["price"]}"
+                    
+            input type="submit" value="CREATE"/
+        
