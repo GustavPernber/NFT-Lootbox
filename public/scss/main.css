@@ -381,6 +381,7 @@ body > footer > svg {
   overflow-x: hidden;
   position: relative;
   margin-top: -20%;
+  pointer-events: none;
 }
 
 body > footer > div.info {
@@ -408,7 +409,7 @@ section.lootbox_welcome {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  justify-content: center;
+  padding: 5rem 0 5rem 0;
   background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-70.gif);
   background-repeat: no-repeat;
   background-position-x: center, 90%, 3%;
@@ -416,13 +417,30 @@ section.lootbox_welcome {
   background-size: 100%, 12rem, 12rem;
 }
 
-section.lootbox_welcome h1 {
+section.lootbox_welcome div.textContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.lootbox_welcome div.textContainer h1 {
   font-size: 5rem;
   text-align: center;
   font-weight: 500;
 }
 
-section.lootbox_welcome h4 {
+section.lootbox_welcome div.textContainer h4 {
   color: #2e2e2e;
   margin-top: 1rem;
   font-size: 1.3rem;
@@ -430,11 +448,12 @@ section.lootbox_welcome h4 {
 }
 
 section.lootbox_welcome button {
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 15%;
   z-index: 2;
   border: none;
   background: none;
-  -webkit-transform: translateY(8rem);
-          transform: translateY(8rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -975,8 +994,11 @@ main#register {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #eeeeee;
-  height: 100vh;
-  padding: 10rem 0rem 15rem 0rem;
+  height: auto;
+  padding: 10rem 0rem 20rem 0rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   gap: 3rem;
 }
 
@@ -1065,9 +1087,12 @@ main#login {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #eeeeee;
-  height: 100vh;
-  padding: 10rem 0rem 15rem 0rem;
+  height: auto;
+  padding: 10rem 0rem 30rem 0rem;
   gap: 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 main#login form {
@@ -1141,9 +1166,9 @@ main#login article.loginError {
 }
 
 main#lootShow {
-  padding: 1rem 0 15rem 0;
+  padding: 8rem 0 19rem 0;
   background: #eeeeee;
-  height: 120vh;
+  height: 125vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1157,45 +1182,62 @@ main#lootShow {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 6rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-main#lootShow h3 {
-  font-weight: 500;
-  margin-top: -4rem;
+main#lootShow article.rarityText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-main#lootShow h4 {
-  margin-top: -4rem;
-  font-weight: 400;
-}
-
-main#lootShow > h1 {
+main#lootShow article.rarityText > h1 {
   font-size: 2rem;
   padding: 0.7rem 3rem;
   border-radius: 8px;
+  margin-bottom: 1rem;
   -webkit-animation: fadein 6s;
           animation: fadein 6s;
   -webkit-box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
           box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
-main#lootShow > h1.common {
+main#lootShow article.rarityText > h1.common {
   background: #5b8eee;
 }
 
-main#lootShow > h1.rare {
+main#lootShow article.rarityText > h1.rare {
   color: white;
   background: #c814f5;
 }
 
-main#lootShow > h1.epic {
+main#lootShow article.rarityText > h1.epic {
   background: #e6cf02;
 }
 
+main#lootShow article.rarityText h3 {
+  font-weight: 500;
+}
+
+main#lootShow article.rarityText h4 {
+  font-weight: 400;
+}
+
 main#lootShow > img {
-  max-width: 7rem;
-  margin-top: 3rem;
+  max-width: 8rem;
   -webkit-animation: fadeFromBottom 1.5s;
           animation: fadeFromBottom 1.5s;
 }
@@ -1217,7 +1259,7 @@ main#lootShow > figure > img {
   border-radius: 8px;
   -webkit-animation: fadeinPause 4s;
           animation: fadeinPause 4s;
-  height: 11rem;
+  height: 12rem;
 }
 
 main.bought {

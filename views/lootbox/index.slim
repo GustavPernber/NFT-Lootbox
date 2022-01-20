@@ -1,7 +1,8 @@
 section.lootbox_welcome
-    h1 TIKTOK GAMING
-        <br> NFT LOOTBOXES
-    h4 Start your NFT journey today!
+    div.textContainer
+        h1 TIKTOK GAMING
+            <br> NFT LOOTBOXES
+        h4 Start your NFT journey today!
     button 
         h3 SHOP LOOTBOXES NOW
         img src="img/down-arrow.png" alt=""
@@ -25,8 +26,10 @@ main.lootbox_container
                     -if lootbox["creator_id"]==session[:id]#created by 
                         a.ownBox href="lootbox/edit/#{lootbox["id"]}" You made this!
 
-                    -elsif session[:boughtBoxes].include?(lootbox["id"])
-                        a.boughtBox href="lootbox/show/#{lootbox["id"]}" Already bought!
+                    -elsif session[:boughtBoxes]!=nil
+                        -if session[:boughtBoxes].include?(lootbox["id"])
+                    
+                            a.boughtBox href="lootbox/show/#{lootbox["id"]}" Already bought!
 
                     -elsif lootbox["price"]>session[:balance] #too expensive
                         a.tooExpensive Too expensive 

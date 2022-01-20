@@ -18,14 +18,16 @@
 -else
     -session[:boughtBoxes]=boughtBoxes
     main#lootShow
-        -if lootbox["rarity"]=="common"
-            h1.common COMMON
-        -elsif lootbox["rarity"]=="rare"
-            h1.rare RARE 
-        -elsif lootbox["rarity"]=="epic"
-            h1.epic EPIC
-        h3 #{lootbox["title"]}
-        h4 Created by: #{creator}
+
+        article.rarityText
+            -if lootbox["rarity"]=="common"
+                h1.common COMMON
+            -elsif lootbox["rarity"]=="rare"
+                h1.rare RARE 
+            -elsif lootbox["rarity"]=="epic"
+                h1.epic EPIC
+            h3 #{lootbox["title"]}
+            h4 Created by: #{creator}
 
         figure 
             -images.each do |imgSrc|

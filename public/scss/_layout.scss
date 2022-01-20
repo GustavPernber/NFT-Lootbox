@@ -175,6 +175,7 @@ body>footer{
         overflow-x: hidden;
         position: relative;
         margin-top: -20%;
+        pointer-events: none;
     }
 
     >div.info{
@@ -193,7 +194,9 @@ section.lootbox_welcome{
     height: 100vh;
     @include center;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: space-between;
+    padding: 5rem 0 5rem 0;
+
 
     background-image: url(../img/wave1.svg), url(../img/blob-1-opacity-86.gif), url(../img/blob-1-opacity-70.gif) ;
     background-repeat: no-repeat;
@@ -201,23 +204,32 @@ section.lootbox_welcome{
     background-position-y: bottom, 10%, 60%;
     background-size: 100%, 12rem, 12rem;
     
-    h1{
-        font-size: 5rem;
-        text-align: center;
-        font-weight:500;
-    }
-
-    h4{
-        color: $dark_grey_text;
-        margin-top: 1rem;
-        font-size: 1.3rem;
-        font-weight: 500;
+    div.textContainer{
+        @include center;
+        margin-bottom: 8rem;
+        flex-direction: column;
+        h1{
+            font-size: 5rem;
+            text-align: center;
+            font-weight:500;
+        }
+    
+        h4{
+            color: $dark_grey_text;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
     }
     button{
+        justify-self: flex-end;
+        
+        position: absolute;
+        bottom: 15%;
         z-index: 2;
         border: none;
         background: none;
-        transform: translateY(8rem);
+        
 
         @include center;
         flex-direction: column;
@@ -249,6 +261,7 @@ main.lootbox_container{
     background-position-y: -2px;
     background-position-x: center;
     background-repeat: no-repeat;
+
     height: auto;
     @include center;
     justify-content: left;
@@ -596,8 +609,9 @@ main#register{
     @include center;
     flex-direction: column;
     background: $almost_white;
-    height: 100vh;
-    padding: 10rem 0rem 15rem 0rem;
+    height: auto;
+    padding: 10rem 0rem 20rem 0rem;
+    justify-content: space-between;
     gap: 3rem;
 
     form{
@@ -639,9 +653,10 @@ main#login{
     @include center;
     flex-direction: column;
     background: $almost_white;
-    height: 100vh;
-    padding: 10rem 0rem 15rem 0rem;
+    height: auto;
+    padding: 10rem 0rem 30rem 0rem;
     gap: 3rem;
+    justify-content: space-between;
 
     form{
         gap: 2rem;
@@ -679,70 +694,80 @@ main#login{
 }
 
 main#lootShow{
-    padding: 1rem 0 15rem 0;
+    padding: 8rem 0 19rem 0;
     background: $almost_white;
-    height: 120vh;
+    height: 125vh;
     @include center;
     flex-direction: column;
-    gap: 6rem;
-
-
-    h3{
-        font-weight: 500;
-        margin-top: -4rem;
-    }
-
-    h4{
-        margin-top: -4rem;
-        font-weight: 400;
-    }
-
-    >h1{
-        font-size: 2rem;
-        padding: 0.7rem 3rem;
-        border-radius: $radius*2;
-        animation: fadein 6s;
-        box-shadow:
-        2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057),
-        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065),
-        12.5px 12.5px 10px rgba(0, 0, 0, 0.065),
-        22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063),
-        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06),
-        100px 100px 80px rgba(0, 0, 0, 0.07)
-        ;
-        &.common{
-            background: $common_blue;    
-        }
+    justify-content: space-between;
+    
+    article.rarityText{
         
-        &.rare{
-            color: white;
-          
-
-            background: $rare_purple;
+        @include center;
+        gap: 0.2rem;
+        flex-direction: column;
+        >h1{
+            font-size: 2rem;
+            padding: 0.7rem 3rem;
+            border-radius: $radius*2;
+            margin-bottom: 1rem;
+            animation: fadein 6s;
+            box-shadow:
+            2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057),
+            6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065),
+            12.5px 12.5px 10px rgba(0, 0, 0, 0.065),
+            22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063),
+            41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06),
+            100px 100px 80px rgba(0, 0, 0, 0.07)
+            ;
+            &.common{
+                background: $common_blue;    
+            }
             
+            &.rare{
+                color: white;
+              
+    
+                background: $rare_purple;
+                
+                
+            }
+            
+            &.epic{
+                background: $epic_yellow;
+            }
+    
+        }
+        h3{
+            font-weight: 500;
+        }
+    
+        h4{
+            
+            font-weight: 400;
             
         }
-        
-        &.epic{
-            background: $epic_yellow;
-        }
-
     }
+
+
+    
+
 
     >img{
-     max-width: 7rem;   
-     margin-top: 3rem;
+     max-width: 8rem;   
+    
      animation: fadeFromBottom 1.5s;
     }
 
     >figure{
         @include center;
-        
+       
         gap: 3rem;
         >img{
             border-radius: $radius*2;
             animation: fadeinPause 4s;
-            height: 11rem;
+            height: 12rem;
+
 
         }
 
