@@ -26,17 +26,14 @@ main.lootbox_container
                     -if lootbox["creator_id"]==session[:id]#created by 
                         a.ownBox href="lootbox/edit/#{lootbox["id"]}" You made this!
 
-                    -elsif session[:boughtBoxes]!=nil
-                        -if session[:boughtBoxes].include?(lootbox["id"])
                     
-                            a.boughtBox href="lootbox/show/#{lootbox["id"]}" Already bought!
+                    -elsif session[:boughtBoxes].include?(lootbox["id"])
+                        a.boughtBox href="lootbox/show/#{lootbox["id"]}" Already bought!
 
-                    -elsif lootbox["price"]>session[:balance] #too expensive
+                    -elsif lootbox["price"]>session[:balance] 
                         a.tooExpensive Too expensive 
                         
                     -else 
-                        / form action="buy/#{lootbox["id"]}"  method="post"
-                        /     input.available type="submit" value="Get lootbox"/ 
                         a.available href="lootbox/show/#{lootbox["id"]}" Get lootbox
 
                 -else   

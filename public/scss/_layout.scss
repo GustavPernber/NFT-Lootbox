@@ -209,7 +209,7 @@ section.lootbox_welcome{
         margin-bottom: 8rem;
         flex-direction: column;
         h1{
-            font-size: 5rem;
+            font-size: 5vw;
             text-align: center;
             font-weight:500;
         }
@@ -535,8 +535,6 @@ main#create_lootbox{
                                 }
 
                                 
-                            
-
                             }
 
                             >label{
@@ -700,6 +698,7 @@ main#lootShow{
     @include center;
     flex-direction: column;
     justify-content: space-between;
+    gap: 2rem;
     
     article.rarityText{
         
@@ -711,7 +710,7 @@ main#lootShow{
             padding: 0.7rem 3rem;
             border-radius: $radius*2;
             margin-bottom: 1rem;
-            animation: fadein 6s;
+            animation: fadein 7s;
             box-shadow:
             2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057),
             6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065),
@@ -750,9 +749,6 @@ main#lootShow{
     }
 
 
-    
-
-
     >img{
      max-width: 8rem;   
     
@@ -766,7 +762,7 @@ main#lootShow{
         >img{
             border-radius: $radius*2;
             animation: fadeinPause 4s;
-            height: 12rem;
+            height: 25vh;
 
 
         }
@@ -787,7 +783,7 @@ main.bought{
         flex-direction: column;
         gap: 4rem ;
         >img{
-            width: 11rem;
+            width: 20vw;
             border-radius: $radius*2;
         }
     }
@@ -796,6 +792,7 @@ main.bought{
         
         @include center;
         flex-direction: column;
+        justify-content: flex-start;
         height: 30rem;
         gap: 3rem;
 

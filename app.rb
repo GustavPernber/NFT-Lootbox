@@ -162,6 +162,56 @@ get('/lootbox/show/:id') do
     
 end
 
+
+post('/lootbox/create') do
+    p session[:id]
+    title=params[:title]
+    rarity=params[:rarity]
+    price=params[:price]
+
+    images=[]
+
+    i=1
+    while i<4
+        imgString="img#{i}"
+        if params.key?(imgString)
+            images << params[imgString][:tempfile]
+        end
+        i+=1
+    end
+    
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    creator_id=session[:id]
+
+    if images.length==1
+        enc1= Base64.encode64(images[0].read)  
+        
+        db.execute("INSERT INTO Lootbox (img1, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?)", enc1, rarity, title, price, creator_id)
+    elsif images.length==2
+        enc1= Base64.encode64(images[0].read)  
+        enc2= Base64.encode64(images[1].read)  
+        
+
+        
+        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?, ?)", enc1, enc2, rarity, title, price, creator_id)
+    elsif images.length==3
+        enc1= Base64.encode64(images[0].read)  
+        enc2= Base64.encode64(images[1].read)  
+        enc3= Base64.encode64(images[2].read)  
+        
+        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price, creator_id) VALUES(?, ?,?,?, ?, ?, ?)", enc1, enc2, enc3, rarity, title, price, creator_id)
+    end
+
+    # "#{session[:id]}"
+    redirect('/')
+end
+
+
+
+
+
+
+
 get('/user/show/:id')do
     id=params[:id].to_i
 
@@ -182,6 +232,11 @@ get('/user/show/:id')do
 
 
 end
+
+
+
+
+
 
 
 post('/lootbox/:id/delete')do
@@ -232,10 +287,15 @@ post('/login')do
             db.results_as_hash=false
             boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
 
-            boughtBoxes = boughtResult.map do |id|
-                id=id.first
-            end 
+            if boughtResult!=nil
+                boughtBoxes = boughtResult.map do |id|
+                    id=id.first
+                end 
+            end
             session[:boughtBoxes]=boughtBoxes
+            if session[:boughtBoxes]==nil
+                session[:boughtBoxes]=[0]
+            end
 
             redirect('/')
             
@@ -248,7 +308,7 @@ post('/login')do
         p exception
         session[:loginError]=true
         redirect('/login')
-
+        
     end
 
 end
@@ -276,12 +336,8 @@ post('/register')do
             session[:colour]=colour
             session[:username]=username
 
-            db.results_as_hash=false
-            boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
-            boughtBoxes = boughtResult.map do |id|
-                id=id.first
-            end 
-            session[:boghtBoxes]=boughtBoxes
+            
+            session[:boughtBoxes]=[0]
 
 
             redirect('/')
@@ -298,43 +354,3 @@ post('/register')do
     
 end
 
-post('/lootbox/create') do
-    title=params[:title]
-    rarity=params[:rarity]
-    price=params[:price]
-
-    images=[]
-
-    i=1
-    while i<4
-        imgString="img#{i}"
-        if params.key?(imgString)
-            images << params[imgString][:tempfile]
-        end
-        i+=1
-    end
-    
-    db=SQLite3::Database.new('db/nft-lootbox.db')
-    creator_id=session[:id]
-
-    if images.length==1
-        enc1= Base64.encode64(images[0].read)  
-        
-        db.execute("INSERT INTO Lootbox (img1, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?)", enc1, rarity, title, price, creator_id)
-    elsif images.length==2
-        enc1= Base64.encode64(images[0].read)  
-        enc2= Base64.encode64(images[1].read)  
-        
-
-        
-        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?, ?)", enc1, enc2, rarity, title, price, creator_id)
-    elsif images.length==3
-        enc1= Base64.encode64(images[0].read)  
-        enc2= Base64.encode64(images[1].read)  
-        enc3= Base64.encode64(images[2].read)  
-        
-        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price, creator_id) VALUES(?, ?,?,?, ?, ?, ?)", enc1, enc2, enc3, rarity, title, price, creator_id)
-    end
-
-    redirect('/lootbox/new')
-end

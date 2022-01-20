@@ -1,8 +1,11 @@
-visa sin profil
-    displaya lootboxes
-    ändra sitt namn
-EDIT
+
 
 delete
+
+SÄTT MAX HEIGHT NÄR MAN KÖPER
+knappar fel på index på sina egna
+
+ändra max size på nginx
+
 
 rating

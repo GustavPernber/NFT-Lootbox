@@ -435,7 +435,7 @@ section.lootbox_welcome div.textContainer {
 }
 
 section.lootbox_welcome div.textContainer h1 {
-  font-size: 5rem;
+  font-size: 5vw;
   text-align: center;
   font-weight: 500;
 }
@@ -1185,6 +1185,7 @@ main#lootShow {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 2rem;
 }
 
 main#lootShow article.rarityText {
@@ -1209,8 +1210,8 @@ main#lootShow article.rarityText > h1 {
   padding: 0.7rem 3rem;
   border-radius: 8px;
   margin-bottom: 1rem;
-  -webkit-animation: fadein 6s;
-          animation: fadein 6s;
+  -webkit-animation: fadein 7s;
+          animation: fadein 7s;
   -webkit-box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
           box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.057), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.065), 12.5px 12.5px 10px rgba(0, 0, 0, 0.065), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.063), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.06), 100px 100px 80px rgba(0, 0, 0, 0.07);
 }
@@ -1259,7 +1260,7 @@ main#lootShow > figure > img {
   border-radius: 8px;
   -webkit-animation: fadeinPause 4s;
           animation: fadeinPause 4s;
-  height: 12rem;
+  height: 25vh;
 }
 
 main.bought {
@@ -1290,7 +1291,7 @@ main.bought > aside {
 }
 
 main.bought > aside > img {
-  width: 11rem;
+  width: 20vw;
   border-radius: 8px;
 }
 
@@ -1308,6 +1309,9 @@ main.bought > section.bought {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   height: 30rem;
   gap: 3rem;
 }
