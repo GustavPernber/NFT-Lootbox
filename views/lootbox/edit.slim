@@ -31,8 +31,8 @@ main#edit
                     label for="epic" Epic 
                 
             div class="namePriceContainer"
-                    input type="text" placeholder="Lootbox title" name="title" maxlength="12" value="#{lootbox["title"]}"
-                    input type="number" name="price" placeholder="$$$" value="#{lootbox["price"]}"
+                    input type="text" required=true placeholder="Lootbox title" name="title" maxlength="12" value="#{lootbox["title"]}"
+                    input type="number" required=true name="price" max="100" placeholder="$$$" value="#{lootbox["price"]}"
                     
             input type="submit" value="EDIT"/
         

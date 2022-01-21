@@ -203,7 +203,15 @@ section.lootbox_welcome{
     background-position-x: center, 90%, 3%;
     background-position-y: bottom, 10%, 60%;
     background-size: 100%, 12rem, 12rem;
-    
+   
+    .post{
+        background-color: lightgreen;
+        padding: 0.5rem;
+        position: absolute;
+        top: 20%;
+        height: 2rem;
+    }
+
     div.textContainer{
         @include center;
         margin-bottom: 8rem;
@@ -852,7 +860,7 @@ main#edit{
     display: grid;
     grid-template-columns: 40% auto;
     height: auto;
-    padding: 10rem 0 20rem 0;
+    padding: 8rem 0 20rem 0;
     background-color: $almost_white;
     >aside{
         
@@ -874,7 +882,7 @@ main#edit{
             flex-direction: column;
             min-height: 20rem;
             gap: 3rem;
-            // width: 30rem;
+            
     
             >h1{
                 font-weight: 500;
@@ -1007,11 +1015,12 @@ main#edit{
             width: 22rem;
             justify-content: flex-end;
             align-items: flex-end;
-            padding-top:6rem ;
+            padding-top:3rem ;
 
             >input{
                 align-self: flex-start;
-                @include colorize($red)
+                @include colorize($red);
+                font-weight: 600;
             }
 
         }

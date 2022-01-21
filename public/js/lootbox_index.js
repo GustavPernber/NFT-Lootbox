@@ -1,10 +1,21 @@
 let articles=document.getElementsByTagName('article')
 console.log(articles)
 let btn=document.querySelector('button')
+
+let btn2=document.querySelector('button.post')
+
+
+btn2.addEventListener('click', ()=>{
+    console.log('cli')
+    return fetch('/js', {method: "POST", headers: {'Content-Type': 'application/json'}})
+})
+
+
+
 for(let i=0; i<articles.length; i++){
     articles[i].addEventListener('mouseover', (e)=>{
         let star1=document.querySelector(`article.lootbox:nth-child(${2+i})>div.rating > img`)
-        console.log(star1)
+        
         let star2=document.querySelector(`article.lootbox:nth-child(${2+i})>div.rating > img:nth-child(2)`)
         let star3=document.querySelector(`article.lootbox:nth-child(${2+i})>div.rating > img:nth-child(3)`)
         

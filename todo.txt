@@ -1,11 +1,9 @@
 
 
-delete
-
-SÄTT MAX HEIGHT NÄR MAN KÖPER
-knappar fel på index på sina egna
-
-ändra max size på nginx
 
 
+validate create input
+delete popup
 rating
+genrer för lootboxes
+redner for null in user

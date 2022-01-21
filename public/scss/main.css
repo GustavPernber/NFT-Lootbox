@@ -417,6 +417,14 @@ section.lootbox_welcome {
   background-size: 100%, 12rem, 12rem;
 }
 
+section.lootbox_welcome .post {
+  background-color: lightgreen;
+  padding: 0.5rem;
+  position: absolute;
+  top: 20%;
+  height: 2rem;
+}
+
 section.lootbox_welcome div.textContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1351,7 +1359,7 @@ main#edit {
   -ms-grid-columns: 40% auto;
       grid-template-columns: 40% auto;
   height: auto;
-  padding: 10rem 0 20rem 0;
+  padding: 8rem 0 20rem 0;
   background-color: #eeeeee;
 }
 
@@ -1591,13 +1599,14 @@ main#edit > section > form.delete {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  padding-top: 6rem;
+  padding-top: 3rem;
 }
 
 main#edit > section > form.delete > input {
   -ms-flex-item-align: start;
       align-self: flex-start;
   background-color: #fd1818;
+  font-weight: 600;
 }
 
 main#edit > section > form.delete > input:hover {

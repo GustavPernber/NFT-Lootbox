@@ -16,6 +16,10 @@ get('/') do
     slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
+
+post('/js')do
+    "js"
+end
 get('/lol')do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
