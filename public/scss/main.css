@@ -954,13 +954,13 @@ main#create_lootbox form ol li:nth-child(3) section div input {
   margin: 0;
   padding: 1.3rem 2.2rem;
   height: 100%;
-  background-color: rgba(100, 100, 100, 0.774);
+  background-color: #a0a0a0;
   border-radius: 9999999px;
 }
 
 main#create_lootbox form ol li:nth-child(3) section div input:hover {
+  background-color: #6d6d6d;
   cursor: pointer;
-  background-color: rgba(100, 100, 100, 0.774);
 }
 
 main#create_lootbox form ol li:nth-child(3) section div input:checked {

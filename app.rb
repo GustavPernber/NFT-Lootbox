@@ -16,26 +16,6 @@ get('/') do
     slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
-
-post('/js')do
-    redirect('/login')
-end
-get('/lol')do
-    db=SQLite3::Database.new('db/nft-lootbox.db')
-    db.results_as_hash=true
-    result=db.execute("SELECT * FROM Lootbox WHERE id=10").first
-    imgBlob=result["img1"]
-    # send_file ''
-    # "<img src=#{imgBlob}>"
-    # srcString="data:image/png;base64, #{imgBlob}"
-    # blobString="lol"
-    srcString="'data:image/png;base64,#{imgBlob}'"
-    
-    
-
-    "<img src=#{srcString}>"
-end
-
 get('/login')do
     slim(:login)
 end
@@ -47,7 +27,11 @@ get('/logout')do
 end
 
 get('/lootbox/new') do
-    slim(:'lootbox/new')
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    db.results_as_hash=true
+    props=db.execute('SELECT * FROM properties')
+
+    slim(:'lootbox/new', locals:{props:props})
 end
 
 get('/register')do

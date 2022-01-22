@@ -3,3 +3,8 @@
 rating
 genrer för lootboxes
 redner for null in user
+
+
+emojis!
+    emojis i random ordning
+    kunna filtrera

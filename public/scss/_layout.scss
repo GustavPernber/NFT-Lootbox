@@ -572,13 +572,15 @@ main#create_lootbox{
                                 padding: 1.3rem 2.2rem;
 
                                 height: 100%;
-                                background-color: $dark_grey;
+                                background-color: rgb(160, 160, 160);
                                 border-radius: 9999999px;
-
+                                
+                                
                                 &:hover {
+                                    background-color: rgb(109, 109, 109);
 
                                     cursor: pointer;
-                                    background-color: $dark_grey;
+                                    
 
                                 }
 

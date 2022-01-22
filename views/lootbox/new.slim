@@ -54,108 +54,22 @@ main#create_lootbox
                 </section>
 
                 
-            li What emotions does the lootbox evoke?
-                <section>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😊 </label>
-                    </div>
-                    <div class="checkBoxContainer">
-                        <input type="checkbox" value="value" name="name" >
-                        <label for="name"> 😢 </label>
-                    </div>
+            li 
+                p What emotions does the lootbox evoke?
+                section
+                    -props.each do |property|
+                        .checkBoxContainer 
+                            
+                            input type="checkbox" value="#{property["id"]}" name="property"
+                            label for="#{property["id"]}"  #{property["name"]}
+                    
+                    
+                   
+                    
                     
 
                     
-                </section>
+                
 
             li Name and price 
                 <div class="namePriceContainer">
