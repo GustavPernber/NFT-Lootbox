@@ -18,7 +18,7 @@ end
 
 
 post('/js')do
-    "js"
+    redirect('/login')
 end
 get('/lol')do
     db=SQLite3::Database.new('db/nft-lootbox.db')

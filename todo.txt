@@ -1,9 +1,5 @@
 
 
-
-
-validate create input
-delete popup
 rating
 genrer för lootboxes
 redner for null in user

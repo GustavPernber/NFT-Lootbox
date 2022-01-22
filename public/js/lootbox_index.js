@@ -7,9 +7,15 @@ let btn2=document.querySelector('button.post')
 
 btn2.addEventListener('click', ()=>{
     console.log('cli')
-    return fetch('/js', {method: "POST", headers: {'Content-Type': 'application/json'}})
-})
+    // return fetch('/js', {method: "POST", headers: {'Content-Type': 'application/json'}})
 
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", '/login', true);
+    // xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send()
+    
+})
+ 
 
 
 for(let i=0; i<articles.length; i++){

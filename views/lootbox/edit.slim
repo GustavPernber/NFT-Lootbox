@@ -1,4 +1,6 @@
 main#edit 
+
+    / div.grey
     aside
         -images.each do |imgSrc|
             img src="#{imgSrc}" alt=""/
@@ -35,7 +37,20 @@ main#edit
                     input type="number" required=true name="price" max="100" placeholder="$$$" value="#{lootbox["price"]}"
                     
             input type="submit" value="EDIT"/
+
+        div.buttonCon
+            button.delete DELETE
         
-        form.delete action="../../lootbox/#{lootbox["id"]}/delete" method="post"
-            input type="submit" value="DELETE"/
+        / article.deletePopup 
+        /     h4 Are you sure you want to delete? 
+        /         <br> This action is irreversible.
+            
+            
+        /     div 
+        /         button No! 
+        /         form action=""
+        /             input type="submit" value="DELETE" / 
         
+        / form.delete action="../../lootbox/#{lootbox["id"]}/delete" method="post"
+        /     input type="submit" value="DELETE"/
+    script src="../../js/lootbox_edit.js" 

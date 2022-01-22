@@ -1363,6 +1363,21 @@ main#edit {
   background-color: #eeeeee;
 }
 
+main#edit div.grey {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 2rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.568);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+}
+
 main#edit > aside {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1580,8 +1595,31 @@ main#edit > section > form > input[type="submit"]:hover {
   cursor: pointer;
 }
 
-main#edit > section > form.delete {
-  height: auto;
+main#edit > section div.buttonCon {
+  padding-top: 3rem;
+  width: 22rem;
+}
+
+main#edit > section div.buttonCon button.delete {
+  width: 7rem;
+  height: 2.5rem;
+  border: 3px solid #111111;
+  border-radius: 4px;
+  font-weight: 700;
+  background-color: #fd1818;
+  font-size: 1.2rem;
+}
+
+main#edit > section div.buttonCon button.delete:hover {
+  background-color: #ff6868;
+}
+
+main#edit > section div.buttonCon button.delete:hover {
+  cursor: pointer;
+}
+
+main#edit > section > article.deletePopup {
+  background: #e2e2e2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1591,26 +1629,78 @@ main#edit > section > form.delete {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 0rem;
-  width: 22rem;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  padding-top: 3rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 2rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  gap: 2rem;
+  border: 2px solid #111111;
+  border-radius: 4px;
+  z-index: 11;
 }
 
-main#edit > section > form.delete > input {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  background-color: #fd1818;
+main#edit > section > article.deletePopup h4 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+main#edit > section > article.deletePopup div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4rem;
+}
+
+main#edit > section > article.deletePopup input, main#edit > section > article.deletePopup button {
+  width: 5rem;
+  height: 2rem;
+  border: 2px solid #111111;
+  border-radius: 4px;
   font-weight: 600;
 }
 
-main#edit > section > form.delete > input:hover {
+main#edit > section > article.deletePopup input:hover, main#edit > section > article.deletePopup button:hover {
+  cursor: pointer;
+}
+
+main#edit > section > article.deletePopup input {
+  background-color: #fd1818;
+}
+
+main#edit > section > article.deletePopup input:hover {
   background-color: #ff6868;
+}
+
+main#edit > section > article.deletePopup button {
+  background-color: #00d680;
+}
+
+main#edit > section > article.deletePopup button:hover {
+  background-color: #50ffd0;
+}
+
+main#edit > section > article.deletePopup form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main#profileShow {
