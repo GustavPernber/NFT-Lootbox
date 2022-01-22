@@ -555,6 +555,54 @@ main#create_lootbox{
                 }
 
                 &:nth-child(3){
+
+                    section{
+                        @include center;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        gap: 1rem;
+                        padding-top: 1.5rem;
+                        div{
+                            @include center;
+                            flex-direction: column;
+
+                            input{
+                                appearance: none;
+                                margin: 0;  
+                                padding: 1.3rem 2.2rem;
+
+                                height: 100%;
+                                background-color: $dark_grey;
+                                border-radius: 9999999px;
+
+                                &:hover {
+
+                                    cursor: pointer;
+                                    background-color: $dark_grey;
+
+                                }
+
+                                &:checked {
+
+                                    background-color: $green;
+                                    
+                                    
+                                }
+
+                            }
+
+                            label{
+                                float: left;
+                                position: absolute;
+                                font-weight: 500;
+                                font-size: 1.5rem;
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(4){
                     >div.namePriceContainer{
                        
                         height: 10rem;

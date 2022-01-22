@@ -912,7 +912,70 @@ main#create_lootbox form ol li:nth-child(2) > section div.rarity_radio_container
   font-weight: 600;
 }
 
-main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer {
+main#create_lootbox form ol li:nth-child(3) section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+main#create_lootbox form ol li:nth-child(3) section div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main#create_lootbox form ol li:nth-child(3) section div input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0;
+  padding: 1.3rem 2.2rem;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.774);
+  border-radius: 9999999px;
+}
+
+main#create_lootbox form ol li:nth-child(3) section div input:hover {
+  cursor: pointer;
+  background-color: rgba(100, 100, 100, 0.774);
+}
+
+main#create_lootbox form ol li:nth-child(3) section div input:checked {
+  background-color: #00d680;
+}
+
+main#create_lootbox form ol li:nth-child(3) section div label {
+  float: left;
+  position: absolute;
+  font-weight: 500;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+main#create_lootbox form ol li:nth-child(4) > div.namePriceContainer {
   height: 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -933,7 +996,7 @@ main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer {
   gap: 2rem;
 }
 
-main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="text"] {
+main#create_lootbox form ol li:nth-child(4) > div.namePriceContainer > input[type="text"] {
   border: 2px solid #111111;
   height: 2rem;
   border-radius: 4px;
@@ -944,12 +1007,12 @@ main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[typ
   padding-left: 0.5rem;
 }
 
-main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="text"]:focus {
+main#create_lootbox form ol li:nth-child(4) > div.namePriceContainer > input[type="text"]:focus {
   outline: none;
   border: 3px solid #111111;
 }
 
-main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="number"] {
+main#create_lootbox form ol li:nth-child(4) > div.namePriceContainer > input[type="number"] {
   padding-left: 0.5rem;
   border: 2px solid #111111;
   height: 2rem;
@@ -961,7 +1024,7 @@ main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[typ
   width: 7rem;
 }
 
-main#create_lootbox form ol li:nth-child(3) > div.namePriceContainer > input[type="number"]:focus {
+main#create_lootbox form ol li:nth-child(4) > div.namePriceContainer > input[type="number"]:focus {
   outline: none;
   border: 3px solid #111111;
 }
