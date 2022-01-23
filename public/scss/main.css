@@ -208,7 +208,7 @@ body > header > ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   list-style: none;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 body > header > ul > li {
@@ -717,7 +717,7 @@ main.lootbox_container article.lootbox > div.rating > img:hover {
 
 main#create_lootbox {
   background-color: #eeeeee;
-  height: 85rem;
+  height: 95rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

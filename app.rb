@@ -27,11 +27,16 @@ get('/logout')do
 end
 
 get('/lootbox/new') do
-    db=SQLite3::Database.new('db/nft-lootbox.db')
-    db.results_as_hash=true
-    props=db.execute('SELECT * FROM properties')
-
-    slim(:'lootbox/new', locals:{props:props})
+    if session[:auth]
+        
+        db=SQLite3::Database.new('db/nft-lootbox.db')
+        db.results_as_hash=true
+        props=db.execute('SELECT * FROM properties')
+        
+        slim(:'lootbox/new', locals:{props:props})
+    else
+        "401"
+    end
 end
 
 get('/register')do
@@ -152,13 +157,33 @@ end
 
 
 post('/lootbox/create') do
-    p session[:id]
+    
     title=params[:title]
     rarity=params[:rarity]
     price=params[:price]
 
-    images=[]
 
+    #get properties
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    propsLength=db.execute("SELECT COUNT(*) FROM properties").first.first
+    i=0
+    checkedProps=[]
+    while i<=propsLength
+
+        value=params["#{i}"]
+        if value!=nil
+            checkedProps << value.to_i
+            #Sätt in värdet (id för propen) i
+            # db.execute("INSERT IN")
+        end
+        i+=1
+        
+    end
+
+    # p checkedProps
+
+
+    images=[]
     i=1
     while i<4
         imgString="img#{i}"
@@ -168,13 +193,14 @@ post('/lootbox/create') do
         i+=1
     end
     
-    db=SQLite3::Database.new('db/nft-lootbox.db')
+    
     creator_id=session[:id]
 
     if images.length==1
         enc1= Base64.encode64(images[0].read)  
         
         db.execute("INSERT INTO Lootbox (img1, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?)", enc1, rarity, title, price, creator_id)
+
     elsif images.length==2
         enc1= Base64.encode64(images[0].read)  
         enc2= Base64.encode64(images[1].read)  
@@ -220,10 +246,6 @@ get('/user/show/:id')do
 
 
 end
-
-
-
-
 
 
 

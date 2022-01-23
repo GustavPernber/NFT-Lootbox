@@ -40,7 +40,7 @@ body>header{
         @include center;
         justify-content: space-between;
         list-style: none;
-        gap: 3rem;
+        gap: 2rem;
 
         >li{
             @include center;
@@ -419,7 +419,7 @@ main.lootbox_container{
 
 main#create_lootbox{
     background-color: $almost_white;
-    height: 85rem;
+    height: 95rem;
     @include center;
     flex-direction: column;
     justify-content: flex-start;

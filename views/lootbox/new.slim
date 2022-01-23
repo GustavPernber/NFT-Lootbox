@@ -57,10 +57,19 @@ main#create_lootbox
             li 
                 p What emotions does the lootbox evoke?
                 section
-                    -props.each do |property|
+                    / .checkBoxContainer 
+                    /     input type="checkbox" value="1" name="property1"
+                    /     label for="1"  1
+                    / .checkBoxContainer 
+                    /     input type="checkbox" value="2" name="property2"
+                    /     label for="2"  2
+                    / .checkBoxContainer 
+                    /     input type="checkbox" value="3" name="property3"
+                    /     label for="3"  3
+                    -props.each_with_index do |property, i|
                         .checkBoxContainer 
                             
-                            input type="checkbox" value="#{property["id"]}" name="property"
+                            input type="checkbox" value="#{property["id"]}" name="#{i}"
                             label for="#{property["id"]}"  #{property["name"]}
                     
                     
