@@ -188,6 +188,19 @@ body>footer{
 
 }
 
+//Error
+article.error{
+    width: 100vw;
+    height: 3rem;
+    @include center;
+    background: $red;
+    position: fixed;
+    font-size: 0.8rem;
+    
+    z-index: 100;
+    bottom: 0;
+}
+
 //LOOTBOXES
 section.lootbox_welcome{
     background-color: $almost_white;

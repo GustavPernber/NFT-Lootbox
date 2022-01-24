@@ -7,12 +7,50 @@ require 'bcrypt'
 
 enable :sessions
 
+#Define all errors
+
+#Define all sessions
+def loginSessions(username) 
+    db=SQLite3::Database.new('db/nft-lootbox.db')
+    db.results_as_hash=true
+    # session[:loginError]=false
+    result=db.execute('SELECT * FROM users WHERE username = ?', username).first
+    # begin
+        pwdigest=result["pwdigest"]
+        id=result["id"]
+
+
+    session[:id]=id
+    session[:auth]=true
+
+    session[:balance]=result["balance"]
+    session[:colour]=result["colour"]
+    session[:username]=result["username"]
+    session[:createError]={
+        status:false,
+        message:""
+    }
+
+    db.results_as_hash=false
+    boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+
+    if boughtResult!=nil
+        boughtBoxes = boughtResult.map do |id|
+            id=id.first
+        end 
+    end
+    session[:boughtBoxes]=boughtBoxes
+    if session[:boughtBoxes]==nil
+        session[:boughtBoxes]=[0]
+    end
+
+end
+
 get('/') do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
     lootboxes=db.execute("SELECT * FROM Lootbox")
-    
-    
+
     slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
@@ -156,76 +194,6 @@ get('/lootbox/show/:id') do
 end
 
 
-post('/lootbox/create') do
-    
-    title=params[:title]
-    rarity=params[:rarity]
-    price=params[:price]
-
-
-    #get properties
-    db=SQLite3::Database.new('db/nft-lootbox.db')
-    propsLength=db.execute("SELECT COUNT(*) FROM properties").first.first
-    i=0
-    checkedProps=[]
-    while i<=propsLength
-
-        value=params["#{i}"]
-        if value!=nil
-            checkedProps << value.to_i
-            #Sätt in värdet (id för propen) i
-            # db.execute("INSERT IN")
-        end
-        i+=1
-        
-    end
-
-    # p checkedProps
-
-
-    images=[]
-    i=1
-    while i<4
-        imgString="img#{i}"
-        if params.key?(imgString)
-            images << params[imgString][:tempfile]
-        end
-        i+=1
-    end
-    
-    
-    creator_id=session[:id]
-
-    if images.length==1
-        enc1= Base64.encode64(images[0].read)  
-        
-        db.execute("INSERT INTO Lootbox (img1, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?)", enc1, rarity, title, price, creator_id)
-
-    elsif images.length==2
-        enc1= Base64.encode64(images[0].read)  
-        enc2= Base64.encode64(images[1].read)  
-        
-
-        
-        db.execute("INSERT INTO Lootbox (img1, img2, rarity, title, price, creator_id) VALUES(?, ?, ?, ?, ?, ?)", enc1, enc2, rarity, title, price, creator_id)
-    elsif images.length==3
-        enc1= Base64.encode64(images[0].read)  
-        enc2= Base64.encode64(images[1].read)  
-        enc3= Base64.encode64(images[2].read)  
-        
-        db.execute("INSERT INTO Lootbox (img1, img2, img3, rarity, title, price, creator_id) VALUES(?, ?,?,?, ?, ?, ?)", enc1, enc2, enc3, rarity, title, price, creator_id)
-    end
-
-    # "#{session[:id]}"
-    redirect('/')
-end
-
-
-
-
-
-
-
 get('/user/show/:id')do
     id=params[:id].to_i
 
@@ -234,20 +202,95 @@ get('/user/show/:id')do
         db.results_as_hash=true
         own_lootboxes=db.execute('SELECT * FROM lootbox WHERE creator_id=?', session[:id])
         boughtBoxes=db.execute('SELECT * FROM lootbox WHERE id IN (SELECT lootbox_id FROM lootbox_ownership WHERE user_id=?)', id)
-
+        
         slim(:'user/show', locals:{own_lootboxes:own_lootboxes, boughtBoxes:boughtBoxes})
+        
+        
+        else
+            p session[:id]
+            p id
+            "401 not auth. session id: #{session[:id]}."  
+        end
 
-
-    else
-        p session[:id]
-        p id
-      "401 not auth. session id: #{session[:id]}."  
-    end
-
-
+    
 end
 
 
+#POSTS
+
+post('/lootbox/create') do
+    
+    if session[:auth]
+        
+        title=params[:title]
+        rarity=params[:rarity]
+        price=params[:price]
+    
+        db=SQLite3::Database.new('db/nft-lootbox.db')
+    
+        images=[]
+        i=1
+        while i<4
+            imgString="img#{i}"
+            if params.key?(imgString)
+                images << params[imgString][:tempfile]
+            end
+            i+=1
+        end
+        
+        creator_id=session[:id]
+        
+        #Om det finns images. Loopa igenom och lägg in dom i base64 format. Annars skicka session error.
+        if images.length !=0
+
+            begin
+                
+                db.execute("INSERT INTO lootbox (rarity, title, price, creator_id) VALUES (?,?,?,?)", rarity, title, price, creator_id)
+                
+                images.each_with_index do |image, i|
+                    encImg=Base64.encode64(image.read)
+                    db.execute("UPDATE lootbox SET img#{i+1}=? WHERE title=?", encImg, title)
+                end 
+        
+                #PROPERTIES
+                db.results_as_hash=false
+                
+                #Hämta id för lootboxen för att sätta in i relationstabell
+                boxId=db.execute('SELECT id FROM lootbox WHERE title=?', title).first
+                propsLength=db.execute("SELECT COUNT(*) FROM properties").first.first
+                i=0
+                while i<=propsLength
+            
+                    propId=params["#{i}"]
+                    if propId!=nil
+                        
+                        #Sätt in propId i relationstabell med lootbox id
+                        db.execute("INSERT INTO lootbox_props (lootbox_id, prop_id) VALUES (?,?)", boxId, propId.to_i   )
+                    end
+                    i+=1
+                    
+                end
+            rescue => exception
+                session[:createError]={
+                    status:true,
+                    message:"Name of lootbox already taken!"
+                }
+                redirect('/lootbox/new')
+            end
+    
+        else
+            session[:createError]={
+                status:true,
+                message:"No valid images submited!"
+            }
+            redirect('/lootbox/new')
+        end
+    
+        redirect('/')
+    else
+        "401"
+    end
+end
 
 post('/lootbox/:id/delete')do
     id=params[:id]
@@ -281,31 +324,36 @@ post('/login')do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
     result=db.execute('SELECT * FROM users WHERE username = ?', username).first
-    begin
+    # begin
         pwdigest=result["pwdigest"]
         id=result["id"]
     
         if BCrypt::Password.new(pwdigest)==password
-            session[:loginError]=false
-            session[:id]=id
-            session[:auth]=true
+            # session[:loginError]=false
+            # session[:id]=id
+            # session[:auth]=true
 
-            session[:balance]=result["balance"]
-            session[:colour]=result["colour"]
-            session[:username]=result["username"]
+            # session[:balance]=result["balance"]
+            # session[:colour]=result["colour"]
+            # session[:username]=result["username"]
+            # session[:createError]={
+            #     status:false,
+            #     message:""
+            # }
 
-            db.results_as_hash=false
-            boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+            # db.results_as_hash=false
+            # boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
 
-            if boughtResult!=nil
-                boughtBoxes = boughtResult.map do |id|
-                    id=id.first
-                end 
-            end
-            session[:boughtBoxes]=boughtBoxes
-            if session[:boughtBoxes]==nil
-                session[:boughtBoxes]=[0]
-            end
+            # if boughtResult!=nil
+            #     boughtBoxes = boughtResult.map do |id|
+            #         id=id.first
+            #     end 
+            # end
+            # session[:boughtBoxes]=boughtBoxes
+            # if session[:boughtBoxes]==nil
+            #     session[:boughtBoxes]=[0]
+            # end
+            loginSessions(username)
 
             redirect('/')
             
@@ -314,12 +362,12 @@ post('/login')do
             redirect('/login')
         end
         
-    rescue => exception
-        p exception
-        session[:loginError]=true
-        redirect('/login')
+    # rescue => exception
+    #     p exception
+    #     session[:loginError]=true
+    #     redirect('/login')
         
-    end
+    # end
 
 end
 

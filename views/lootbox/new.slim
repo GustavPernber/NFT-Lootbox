@@ -1,4 +1,8 @@
 main#create_lootbox
+    -if session[:createError][:status] 
+        article.error 
+            h1 #{session[:createError][:message]}
+    -session[:createError][:status]=false
     h1 CREATE YOUR LOOTBOX
     form action="/lootbox/create" method="post" enctype="multipart/form-data"
         ol 
@@ -57,29 +61,11 @@ main#create_lootbox
             li 
                 p What emotions does the lootbox evoke?
                 section
-                    / .checkBoxContainer 
-                    /     input type="checkbox" value="1" name="property1"
-                    /     label for="1"  1
-                    / .checkBoxContainer 
-                    /     input type="checkbox" value="2" name="property2"
-                    /     label for="2"  2
-                    / .checkBoxContainer 
-                    /     input type="checkbox" value="3" name="property3"
-                    /     label for="3"  3
                     -props.each_with_index do |property, i|
                         .checkBoxContainer 
                             
                             input type="checkbox" value="#{property["id"]}" name="#{i}"
                             label for="#{property["id"]}"  #{property["name"]}
-                    
-                    
-                   
-                    
-                    
-
-                    
-                
-
             li Name and price 
                 <div class="namePriceContainer">
                     <input type="text" placeholder="Lootbox title" name="title" maxlength="12" required=true>

@@ -1,0 +1,27 @@
+ctrl + enter för ny
+alt + d för avklarad
+
+Server:
+    Create new:
+        ✔ Loop för hur många bilder man har @done(22-01-24 14:18)
+        ✔ Sätt in emojis properties i relationstabell @done(22-01-24 13:55)
+        ✔ Felhantering unique constraint på new @done(22-01-24 14:27)
+    Delete:
+        ☐ Verifiering med creator id
+    Update:
+        ☐ Verifiering
+    Misc:
+        ☐ Felhantering vid login. Ändra loginerror till false efter rendering
+
+Front-end:
+    ☐ Rendera för null i user om inga boxes köpta/skapade
+    ☐ Emojis:
+        ☐ Visa emojis
+        ☐ Filtrera på emojis
+
+Misc:
+    ☐ Rating
+    ☐ Fixa login/register error
+    ☐ Snygga till login och register. Gemensam session funktion?
+    ☐ 401 sida
+    ☐ 404 sida

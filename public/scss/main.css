@@ -393,6 +393,25 @@ body > footer h1, body > footer h5 {
   color: #eeeeee;
 }
 
+article.error {
+  width: 100vw;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fd1818;
+  position: fixed;
+  font-size: 0.8rem;
+  z-index: 100;
+  bottom: 0;
+}
+
 section.lootbox_welcome {
   background-color: #eeeeee;
   height: 100vh;
