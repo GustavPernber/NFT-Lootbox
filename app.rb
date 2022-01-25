@@ -5,33 +5,32 @@ require 'base64'
 require 'bcrypt'
 
 
-enable :sessions
-
+# enable :sessions
+#enable sessions gör att sessions rensas vid post request med nginx om port !=80
+use Rack::Session::Cookie, :key => "rack.session",
+:path => "/"
 #Define all errors
+def sessionErrors()
+    session[:createError]={
+        status:false,
+        message:""
+    }
+end
 
 #Define all sessions
-def loginSessions(username) 
+def loginSessions(result) 
     db=SQLite3::Database.new('db/nft-lootbox.db')
-    db.results_as_hash=true
-    # session[:loginError]=false
-    result=db.execute('SELECT * FROM users WHERE username = ?', username).first
-    # begin
-        pwdigest=result["pwdigest"]
-        id=result["id"]
 
+    #auth, id, color, balance, boughtboxes, 
 
-    session[:id]=id
+    session[:id]=result["id"]
     session[:auth]=true
 
     session[:balance]=result["balance"]
     session[:colour]=result["colour"]
     session[:username]=result["username"]
-    session[:createError]={
-        status:false,
-        message:""
-    }
 
-    db.results_as_hash=false
+
     boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
 
     if boughtResult!=nil
@@ -50,7 +49,8 @@ get('/') do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
     lootboxes=db.execute("SELECT * FROM Lootbox")
-
+    p 'auth'
+    puts session[:auth]
     slim(:'lootbox/index', locals:{lootboxes:lootboxes})
 end
 
@@ -288,7 +288,7 @@ post('/lootbox/create') do
     
         redirect('/')
     else
-        "401"
+        "401 #{session[:auth]}"
     end
 end
 
@@ -324,50 +324,56 @@ post('/login')do
     db=SQLite3::Database.new('db/nft-lootbox.db')
     db.results_as_hash=true
     result=db.execute('SELECT * FROM users WHERE username = ?', username).first
-    # begin
+    begin
         pwdigest=result["pwdigest"]
         id=result["id"]
     
         if BCrypt::Password.new(pwdigest)==password
-            # session[:loginError]=false
-            # session[:id]=id
-            # session[:auth]=true
+            session[:loginError]=false
+            session[:id]=id
+            session[:auth]=true
 
-            # session[:balance]=result["balance"]
-            # session[:colour]=result["colour"]
-            # session[:username]=result["username"]
-            # session[:createError]={
-            #     status:false,
-            #     message:""
-            # }
+            session[:balance]=result["balance"]
+            session[:colour]=result["colour"]
+            session[:username]=result["username"]
+            session[:createError]={
+                status:false,
+                message:""
+            }
 
-            # db.results_as_hash=false
-            # boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
+            db.results_as_hash=false
+            boughtResult=db.execute("SELECT lootbox_id FROM lootbox_ownership WHERE user_id=? ", session[:id])
 
-            # if boughtResult!=nil
-            #     boughtBoxes = boughtResult.map do |id|
-            #         id=id.first
-            #     end 
-            # end
-            # session[:boughtBoxes]=boughtBoxes
-            # if session[:boughtBoxes]==nil
-            #     session[:boughtBoxes]=[0]
-            # end
-            loginSessions(username)
+            if boughtResult!=nil
+                boughtBoxes = boughtResult.map do |id|
+                    id=id.first
+                end 
+            end
+            session[:boughtBoxes]=boughtBoxes
+            if session[:boughtBoxes]==nil
+                session[:boughtBoxes]=[0]
+            end
+            # loginSessions(result)
+            session[:createError]={
+                status:false,
+                message:""
+            }
 
             redirect('/')
             
         else
+            #WRONG PASSWORD
             session[:loginError]=true
             redirect('/login')
         end
         
-    # rescue => exception
-    #     p exception
-    #     session[:loginError]=true
-    #     redirect('/login')
+    rescue => exception
+        #INVALID USERNAME
+        p exception
+        session[:loginError]=true
+        redirect('/login')
         
-    # end
+    end
 
 end
 
@@ -393,7 +399,10 @@ post('/register')do
             session[:balance]=balance
             session[:colour]=colour
             session[:username]=username
-
+            session[:createError]={
+                status:false,
+                message:""
+            }
             
             session[:boughtBoxes]=[0]
 

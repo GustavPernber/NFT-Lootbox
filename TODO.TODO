@@ -1,5 +1,5 @@
-ctrl + enter för ny
-alt + d för avklarad
+ctrl + enter, för ny
+alt + d för, avklarad
 
 Server:
     Create new:
@@ -12,9 +12,12 @@ Server:
         ☐ Verifiering
     Misc:
         ☐ Felhantering vid login. Ändra loginerror till false efter rendering
+        ☐ Funktioner för session definering och errors
 
 Front-end:
     ☐ Rendera för null i user om inga boxes köpta/skapade
+    ☐ Created by i profil view
+    ☐ unique constraint edit
     ☐ Emojis:
         ☐ Visa emojis
         ☐ Filtrera på emojis
@@ -25,3 +28,6 @@ Misc:
     ☐ Snygga till login och register. Gemensam session funktion?
     ☐ 401 sida
     ☐ 404 sida
+    ☐ Transaktioner av pengar
+    ☐ Sortera lootboxes i reverse ordning
+    ☐ Filtrera på köpta/ägda/oköpa
