@@ -1,2 +1,4 @@
 # NFT-Lootbox
-**WSP slutprojekt**
+
+NFT Lootbox är en plattform för användare att skapa **lootboxes** och att köpa från andra användare.
+
