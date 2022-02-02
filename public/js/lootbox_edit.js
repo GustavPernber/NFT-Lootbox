@@ -19,6 +19,7 @@ let popupScreen=`
 
 
 
+
 deleteBtn.addEventListener('click', ()=>{
     console.log('click')
     document.querySelector('main#edit > section').innerHTML+=popupScreen
